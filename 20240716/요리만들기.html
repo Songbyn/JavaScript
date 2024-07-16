@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요리만들기</title>
+    <style>
+        #wrap {
+            margin: 0 auto;
+            /* border: 1px solid; */
+            width: 800px;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        #imgWrap {
+            /* border: 1px solid red; */
+            margin: 0 auto;
+            width: 700px;
+            height: 500px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .arrow {
+            font-size: 50px;
+            margin: 0 5px;
+            color: gray;
+            font-weight: bold;
+        }
+
+        .arrow:hover {
+            background-color: gray;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        #infoWrap {
+            /* border: 1px solid blue; */
+            width: 100%;
+            /* height: 500px; */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #infoWrap p {
+            font-size: 30px;
+            margin-top: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main id="wrap">
+        <div id="imgWrap">
+            <div class="arrow" id="left">&lang;</div>
+            <div class="arrow" id="right">&rang;</div>
+        </div>
+        <div id="infoWrap">
+        </div>
+    </main>
+
+
+    <script>
+        let pics = ["images/재료.jpg", "images/김치찌개1.jpg", "images/김치찌개2.jpg",
+            "images/김치찌개3.jpg", "images/김치찌개4.jpg", "images/김치찌개5.jpg",
+            "images/김치찌개6.jpg", "images/김치찌개7.jpg", "images/김치찌개8.jpg",
+            "images/김치찌개9.jpg", "images/김치찌개10.jpg", "images/김치찌개11.jpg",
+            "images/김치찌개12.jpg"
+        ]
+        let order = [
+            "<h1>재료</h1> 식용유 1T, 썬 대파 1컵(종이컵기준), 돼지고기(삼겹살이나 앞다리살-어느정도 지방이 있어야 더 맛남)200g, 설탕 1/2T, 고춧가루1T, 국간장2T, 김치200g(고기와 동량), 김치국물 4T, 양파 1/4개, 다진마늘 1T, 물 종이컵1컵, 토핑용 대파 1T",
+            "<p>냄비에 식용유 1T를 두릅니다</p>",
+            "<p>썰어놓은 대파 1컵을 부어서 약한불에서 저으며 파기름을 내줍니다.</p>",
+            "<p>돼지고기 200g을 넣고 겉면의 핏기가 가실정도로 살짝 볶아줍니다.</p>",
+            "<p>고춧가루 1T, 설탕 1/2T, 국간장 2T를 넣고 잘 섞이도록 저어줍니다.</p>",
+            "<p>고기와 양념이 타지 않고 눌러붙지 않게 숟가락으로 계속 저어가며 고기가 완전히 익을 때까지 볶아줍니다.</p>",
+            "<p>먹기 좋은 크기로 썰은 김치 200g(고기와 동량)과 김치국물 약 4T를 넣어줍니다.</p>",
+            "<p>썰어둔 양파 1/4개를 넣어줍니다.</p>",
+            "<p>종이컵 1컵분량의 물을 넣어줍니다.</p>",
+            "<p>다진마늘 1T를 넣고 국물전체에 잘 풀어줍니다.</p>",
+            "<p>뚜껑을 덮고 센불로 약 7분간 끓이고 불을 꺼줍니다.</p>",
+            "<p>토핑용으로 썰어놓은 대파(파란부분)를 1숟가락정도 올려주면 완성입니다.</p>",
+            "<p>완성"
+        ]
+        let j = 0
+        let arrows = document.querySelectorAll(".arrow")
+        let imgWrap = document.getElementById("imgWrap")
+        let infoWrap = document.getElementById("infoWrap")
+        imgWrap.style.backgroundImage = `url(${pics[0]})`
+        infoWrap.innerHTML = order[0]
+        // for (let i = 0; i < arrows.length; i++) {
+        //     arrows[i].addEventListener("click", function () {
+        //         if (this.id == "left") {
+        //             j--
+        //             if (j < 0) {
+        //                 j = 0
+        //             }
+        //         }
+        //         if (this.id == "right") {
+        //             j++
+        //             if (j > length - 1) {
+        //                 j = length - 1
+        //             }
+        //         }
+        //         imgWrap.style.backgroundImage = `url(${pics[j]})`
+        //         infoWrap.innerHTML = order[j]
+        //     })
+        // }
+        arrows.forEach(arrow => {
+            arrow.addEventListener("click", (e) => {
+                if(e.target.id === "left") { // 왼쪽 화살표
+                    j--
+                    // 첫번째 이미지면 맨 마지막 이미지로 이동
+                    if ( j < 0 ) {
+                        j = 0 
+                    }
+                } else if (e.target.id === "right") {
+                    j++
+                    if (j > pics.length - 1) {
+                        j = pics.length - 1
+                    }
+                }
+                imgWrap.style.backgroundImage = `url(${pics[j]})`
+                infoWrap.innerHTML = order[j]
+            })
+        })
+    </script>
+</body>
+
+</html>

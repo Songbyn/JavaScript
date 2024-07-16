@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body> 
+<!-- body에 onload 속성 : 페이지가 로드되었을때 호출 -->
+<!-- window.onload -->
+    <p id="p">마우스를 올리면 색깔 변경</p>
+    <script>
+        let p = document.getElementsByTagName("p")
+        p[0].addEventListener("mouseover", function () {
+            this.style.background = "blue"
+        })
+        p[0].addEventListener("mouseout", function() {
+            this.style.background = "white"
+        })
+    </script>
+</body>
+
+</html>
