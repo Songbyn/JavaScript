@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            font-family: -apple-system;
+            /* 드래그시 파란색 배경 없애기 */
+            user-select: none;
+            /* 클릭시 파란색 배경 없애기 */
+            -webkit-tap-highlight-color: transparent;
+            margin: 0px;
+            padding: 0px;
+        }
+        /* 헤더 스타일 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid rgba(114, 114, 114, 0.1);
+            background-color: white;
+        }
+        .header {
+            height: 64px;
+            margin: 0 160px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: 40px;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 36px;
+        }
+
+        /* ******** */
+
+        /* 섹션 스타일 */
+        section {
+            background-color: #F2F3F6;
+            margin-top: 64px;
+            margin-bottom: 66px;
+        }
+        .loginWrap {
+            width: 1080px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 180px 39px 308px 34px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+        .loginInfo h1 {
+            font-size: 34px;
+            color: #212124;
+            margin: 0px;
+        }
+        .loginInfo .subTitle {
+            font-size: 18px;
+            color: #212124;
+            margin-top: 16px;
+        }
+        .loginInfo-ol {
+            margin: 32px 0;
+        }
+        .loginInfo-ol ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .loginInfo-ol ol li {
+            color: #4D5159;
+        }
+        .ol-Title {
+            font-weight: 700;
+            color: #4D5159;
+            margin-bottom: 16px;
+        }
+        .scanner {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+        .loginInfo-description span {
+            color: #868B94;
+            font-weight: 500;
+        }
+        .loginInfo-description a {
+            color: #868b94;
+            font-weight: 700;
+        }
+        .qr {
+            background-color: #EAEBEE;
+            padding: 120px;
+            border-radius: 30px;
+        }
+        .point {
+            position: relative;
+            top: 1.4px;
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top:1px solid rgba(114, 114, 114, 0.1);
+            background-color: white;
+        }
+        .footer_main {
+            width: 1200px;
+            height: 66px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-nav a {
+            text-decoration: none;
+            color: #868B94;
+            font-size: 13px;
+            margin-left: 12px;
+            font-weight: 700;
+        }
+        .footer-nav a:nth-child(2) {
+            color: #393A40;
+        }
+        .footer-Inc {
+            color: #868B94;
+            font-weight: 700;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="https://www.daangn.com/" class="logo"><img src="images/logo.png" alt=""></a>
+        </div>
+    </header>
+    <section>
+        <div class="loginWrap">
+            <div class="loginInfo">
+                <h1>당근채팅 로그인</h1>
+                <div class="subTitle">휴대전화의 카메라 또는 당근 앱으로 QR코드를 촬영해주세요.</div>
+                <div class="loginInfo-ol">
+                    <div class="ol-Title">휴대전화로 QR코드 촬영하기</div>
+                    <ol>
+                        <li>1.휴대전화에서 카메라 앱을 열어요.</li>
+                        <li>2.카메라로 코드를 스캔해요.</li>
+                        <li>3.당근채팅 로그인하기 팝업을 클릭해요/</li>
+                    </ol>
+                </div>
+                <div class="loginInfo-ol">
+                    <div class="ol-Title">휴대전화로 QR코드 촬영하기</div>
+                    <ol>
+                        <li>1.휴대전화에서 카메라 앱을 열어요.</li>
+                        <li>
+                            <div>
+                                2.채팅 탭에서 QR 코드 스캐너 <img src="images/scanner.png" width="21.6px" height="21.6px" class="scanner">
+                                를 선택해요.
+                            </div>
+                        </li>
+                        <li>3.카메라로 코드를 스캔해요.</li>
+                        <li>4.당근채팅 로그인하기 팝업을 클릭해요/</li>
+                    </ol>
+                </div>
+                <div class="loginInfo-description">
+                    <img src="images/point.png" width="16px" height="16px" class="point">
+                    <span>아직 계정이 없다면 모바일 앱에서 회원가입해주세요.</span>
+                    <a href="">자주 묻는 질문</a>
+                </div>
+            </div>
+            <div class="qr">
+                <img src="data:image/png;base64,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" width="220px" height="220px">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer_main">
+            <div class="footer-nav">
+                <a href="">이용약관</a>
+                <a href="">개인정보처리방침</a>
+                <a href="">위치기반서비스 이용약관</a>
+            </div>
+            <div class="footer-Inc">
+                @ Daangn Market Inc.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

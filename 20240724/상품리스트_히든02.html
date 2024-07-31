@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            width: 250px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        li img {
+            width: 250px;
+            height: 300px;
+        }
+
+        .hidden_wrap {
+            width: 100%;
+            background-color: antiquewhite;
+            height: 300px;
+            border: 1px solid;
+            position: absolute;
+            bottom: -300px;
+            transition: 0.5s;
+            opacity: 1;
+        }
+
+        li:hover .hidden_wrap {
+            bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <img src="https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/9JDV/image/FQtSFWM_1h2TEwr0SgUqvE5X0ds.JPG"
+                alt="">
+            <div class="hidden_wrap">
+                몬스터 와퍼
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

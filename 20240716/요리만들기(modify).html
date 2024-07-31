@@ -94,33 +94,15 @@
         let infoWrap = document.getElementById("infoWrap")
         imgWrap.style.backgroundImage = `url(${pics[0]})`
         infoWrap.innerHTML = order[0]
-        // for (let i = 0; i < arrows.length; i++) {
-        //     arrows[i].addEventListener("click", function () {
-        //         if (this.id == "left") {
-        //             j--
-        //             if (j < 0) {
-        //                 j = 0
-        //             }
-        //         }
-        //         if (this.id == "right") {
-        //             j++
-        //             if (j > length - 1) {
-        //                 j = length - 1
-        //             }
-        //         }
-        //         imgWrap.style.backgroundImage = `url(${pics[j]})`
-        //         infoWrap.innerHTML = order[j]
-        //     })
-        // }
-        arrows.forEach(arrow => {
-            arrow.addEventListener("click", (e) => {
-                if(e.target.id === "left") { // 왼쪽 화살표
+        for (let i = 0; i < arrows.length; i++) {
+            arrows[i].addEventListener("click", function () {
+                if (this.id == "left") {
                     j--
-                    // 첫번째 이미지면 맨 마지막 이미지로 이동
-                    if ( j < 0 ) {
-                        j = 0 
+                    if (j < 0) {
+                        j = 0
                     }
-                } else if (e.target.id === "right") {
+                }
+                if (this.id == "right") {
                     j++
                     if (j > pics.length - 1) {
                         j = pics.length - 1
@@ -129,7 +111,25 @@
                 imgWrap.style.backgroundImage = `url(${pics[j]})`
                 infoWrap.innerHTML = order[j]
             })
-        })
+        }
+        // arrows.forEach(arrow => {
+        //     arrow.addEventListener("click", (e) => {
+        //         if(e.target.id === "left") { // 왼쪽 화살표
+        //             j--
+        //             // 첫번째 이미지면 맨 마지막 이미지로 이동
+        //             if ( j < 0 ) {
+        //                 j = 0 
+        //             }
+        //         } else if (e.target.id === "right") {
+        //             j++
+        //             if (j > pics.length - 1) {
+        //                 j = pics.length - 1
+        //             }
+        //         }
+        //         imgWrap.style.backgroundImage = `url(${pics[j]})`
+        //         infoWrap.innerHTML = order[j]
+        //     })
+        // })
     </script>
 </body>
 

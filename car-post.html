@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현대-올-뉴-투싼-tl-5인승-디젤-2-0-fwd-모던-</title>
+    <link rel="icon" type="image/x-icon" href="https://d1unjqcospf8gs.cloudfront.net/favicon_rebrand.ico">
+    <style>
+        * {
+            font-family: -apple-system;
+            /* 클릭시 파란색 배경 없애기 */
+            -webkit-tap-highlight-color: transparent;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* 헤더스타일 */
+        header {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .header {
+            height: 64px;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: 40px;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 36px;
+        }
+
+        .nav {
+            width: 661px;
+        }
+
+        .navBar {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+        }
+
+        .navBar li a {
+            margin-right: 30px;
+            color: #4D5159;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            margin-right: 12px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            width: 288px;
+            height: 40px;
+            background-color: #F2F3F6;
+            padding: 9px 12px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chatBtn {
+            background-color: #FFFFFF;
+            width: 97.6px;
+            height: 40px;
+            border-radius: 5px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .chatBtn a {
+            font-size: 16px;
+            color: #212124;
+        }
+
+        /*메인 스타일*/
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            padding: 88px 16px 80px;
+            box-sizing: border-box;
+        }
+
+        /*이미지, 유저정보, 유저매너점수*/
+        .main-imgWrap img {
+            width: 100%;
+            height: 468px;
+            border-radius: 10px;
+        }
+
+        .main-user {
+            padding: 24px 0px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .user-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .main-userInfo {
+            display: flex;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #212124;
+        }
+
+        .user-location {
+            font-size: 14px;
+            color: #212124;
+            margin-top: 3px;
+        }
+
+        .manner-info {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: center;
+        }
+
+        .manner-info .degree {
+            color: #009CEB;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .meter {
+            margin-top: -15px;
+        }
+
+        .meter meter {
+            height: 8px;
+        }
+
+        .manner-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 3px;
+            background-image: url("images/mannerIcon.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .manner-wrap .manner-font {
+            color: #868B94;
+            font-size: 13px;
+            text-align: right;
+        }
+
+        /*알바 이름*/
+        .main-job {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main-job h1 {
+            color: #212124;
+            font-size: 24px;
+        }
+
+        .main-job pre {
+            color: #868B94;
+            font-size: 14px;
+            margin-top: 16px;
+        }
+
+        .main-job button {
+            background-color: #FF6F06;
+            padding: 5px 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            line-height: 24px;
+        }
+
+        /*알바 정보*/
+        .job-info {
+            margin-bottom: 40px;
+        }
+
+        .job-info h2 {
+            padding: 16px 0px;
+            font-size: 20px;
+            color: #212124;
+        }
+
+        .job-infoDiv {
+            color: #212124;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .job-infoDiv img {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+        }
+
+        /*알바 상세정보*/
+        .job-detail {
+            margin-bottom: 40px;
+        }
+
+        .job-detail h2 {
+            padding: 16px 0px;
+            font-size: 20px;
+            color: #212124;
+        }
+
+        .job-detail p {
+            font-size: 18px;
+            color: #212124;
+        }
+
+        /*알바 위치*/
+        .job-location h2 {
+            padding: 16px 0px;
+            font-size: 20px;
+            color: #212124;
+        }
+
+        .job-location address {
+            color: #212124;
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .job-location .map iframe {
+            border-radius: 10px;
+            height: 194px;
+            width: 100%;
+        }
+
+        /* 부동산 추가 */
+        .seller p {
+            color: #212124;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .info-span1 {
+            width: 190px;
+            font-size: 18px;
+            color: #868B94;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .info-span2 {
+            font-size: 18px;
+            color: #212124;
+            font-weight: 500;
+        }
+
+        .addBtn {
+            width: 100%;
+            font-size: 18px;
+            font-weight: 700;
+            background-color: #0000000D;
+            padding: 10px;
+            color: #212124;
+            border-radius: 3px;
+            text-align: center;
+            border: none;
+        }
+
+        /* 차 게시물 스타일 */
+        .job-infoDiv img {
+            margin-right: 12px;
+        }
+        .add-info {
+            color: #212124;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 4px 12px;
+            width: 120px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        /* 근처알바 */
+        .job-others {
+            width: 768px;
+            margin-top: 60px;
+        }
+
+        .job-others h2 {
+            padding: 16px 0px;
+            font-size: 20px;
+            color: #212124;
+        }
+
+        .other-wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .other-info {
+            padding: 20px 0px;
+            width: 48%;
+        }
+
+        .other-info:nth-child(1),
+        .other-info:nth-child(2) {
+            padding-top: 0;
+        }
+
+        .other-item {
+            display: flex;
+            cursor: pointer;
+        }
+
+        .other-item .other-img img {
+            width: 108px;
+            min-height: 108px;
+            max-height: 116.45px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .other-detail {
+            margin-left: 16px;
+        }
+
+        .other-title {
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: #212124;
+        }
+
+        .other-location {
+            font-size: 14px;
+            color: #868B94;
+            margin-bottom: 4px;
+        }
+
+        .other-wage {
+            font-size: 16px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        /*푸터 부분*/
+        a {
+            text-decoration: none;
+        }
+
+        .footer {
+            width: 768px;
+            margin: 0 auto;
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .footerA {
+            width: 768px;
+            padding: 48px 0px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .footerNav {
+            display: flex;
+            width: 464px;
+        }
+
+        .footerNavbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footerNavbar li {
+            padding: 16.6px;
+            padding-right: 25.6px;
+        }
+
+        .footerNavbar li a {
+            font-size: 14px;
+            color: #212124;
+        }
+
+        .DownloadDiv1 {
+            font-size: 14px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        .DownloadDiv2 {
+            margin-top: 10px;
+        }
+
+        .DownloadDiv2 a {
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            border-radius: 10px;
+            width: 147px;
+            height: 44px;
+        }
+
+        .AppStore {
+            background-image: url("images/AppStore.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .GooglePlay {
+            background-image: url("images/GooglePlay.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .footerB {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            width: 768px;
+            padding: 24px 0px 100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .infoWrap {
+            width: 430px;
+        }
+
+        .info div span {
+            font-size: 13px;
+            color: #868B94;
+        }
+
+        .info div span b {
+            font-size: 13px;
+            margin-right: 3px;
+        }
+
+        .infoStick::after {
+            content: "|";
+            margin: 0;
+            opacity: 0.4;
+        }
+
+        .infoNav {
+            margin: 16px 0px;
+        }
+
+        .infoNav a {
+            text-decoration: none;
+            color: #868B94;
+            font-size: 13px;
+            margin-right: 16px;
+            font-weight: 700;
+        }
+
+        .snsWrap {
+            margin-left: 50px;
+            width: 280px;
+            display: flex;
+        }
+
+        .snsWrap a {
+            padding-top: 4px;
+            margin-right: 16px;
+        }
+
+        .snsWrap a img {
+            width: 21px;
+            height: 21px;
+        }
+
+        .lang {
+            padding: 8px;
+            width: 92px;
+            height: 14px;
+            font-size: 14px;
+            color: #868B94;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang span {
+            padding-left: 4px;
+            padding-right: 16px;
+        }
+
+        .rules a {
+            color: #868B94;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+            <nav class="nav">
+                <ul class="navBar">
+                    <li><a href="fleamarket.html">중고거래</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
+                    <li><a href="jobs.html">알바</a></li>
+                    <li><a href="realty.html">부동산</a></li>
+                    <li><a href="car.html" style="color: #FF6F06;">중고차 직거래</a></li>
+                </ul>
+            </nav>
+            <div class="search-wrap">
+
+                <form action="" class="search-bar">
+                    <input type="search" placeholder="물품이나 동네를 검색해보세요">
+                </form>
+
+                <span>
+                    <button class="chatBtn"><a href="login.html">채팅하기</a></button>
+                </span>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="main-imgWrap">
+            <img src="https://dnvefa72aowie.cloudfront.net/car/articles/35967dc777a7f45e9d6af0216dcbbe91b6f40e67d717a0263b50718aa3696f35_1718853249603.jpeg?q=95&s=1440x1440&t=inside"
+                alt="">
+        </section>
+
+        <a href="user01.html">
+            <section class="main-user">
+                <div class="main-userInfo">
+                    <img src="https://pbs.twimg.com/media/C8tku1zVYAAGbQ_.jpg" class="user-img">
+                    <div>
+                        <div class="user-name">직거래갈끄니까</div>
+                        <div class="user-location">시흥동</div>
+                    </div>
+                </div>
+
+                <div class="manner-wrap">
+                    <div class="manner-info">
+                        <div>
+                            <div class="degree">38.1°C</div>
+                            <div class="meter"><meter value="38.1" max="100" low="25" high="35"></meter></div>
+                        </div>
+                        <div class="manner-icon">
+                        </div>
+                    </div>
+                    <div class="manner-font">매너온도</div>
+                </div>
+            </section>
+        </a>
+
+        <section class="main-job">
+            <div>
+                <div class="seller">
+                    <p>현대 올 뉴 투싼 TL 5인승(디젤 2.0) FWD 모던</p>
+                </div>
+                <h1>950만원 ⸱ 19년식 ⸱ 10.1만km</h1>
+                <pre>4일 전 ⸱ 채팅 81 ⸱ 관심 88 ⸱ 조회 70375</pre>
+            </div>
+            <div>
+                <button>당근 앱에서 보기</button>
+            </div>
+        </section>
+
+        <section class="job-info">
+            <h2>가격 정보</h2>
+            <div class="job-infoDiv">
+                <span class="info-span1">총 구매 예상비용</span>
+                <span class="info-span2"><b>10,277,700원</b></span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">직거래로 아끼는 비용</span>
+                <span class="info-span2"><b>539,000원 + @</b></span>
+            </div>
+        </section>
+
+        <section class="job-info">
+            <h2>정보</h2>
+            <div class="job-infoDiv">
+                <span class="info-span1">차종</span>
+                <span class="info-span2">준/중형차</span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">연식 / 등록일 </span>
+                <span class="info-span2">19년식 19년 / 1월 등록 </span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">주행거리</span>
+                <span class="info-span2">10.1만km</span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">배기량</span>
+                <span class="info-span2">1995cc</span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">연료</span>
+                <span class="info-span2">디젤 (경유)</span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">변속기</span>
+                <span class="info-span2">자동 (A/T)</span>
+            </div>
+        </section>
+        <section class="job-info">
+            <h2>보험이력 정보</h2>
+            <div class="job-infoDiv">
+                <span class="info-span1">보험사고 이력</span>
+                <span class="info-span2">4회</span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">자동차 특수 용도 이력</span>
+                <span class="info-span2">없음</span>
+            </div>
+            <div class="job-infoDiv">
+                <span class="info-span1">소유자 변경 이력</span>
+                <span class="info-span2">2회</span>
+            </div>
+            <div>
+                <button class="addBtn">보험이력 더보기</button>
+            </div>
+        </section>
+
+        <section class="job-info">
+            <h2>보험이력 정보</h2>
+            <div class="job-infoDiv">
+                <img src="images/opt1.png" width="18px" height="18px">
+                <span class="info-span2">크루즈 컨트롤</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt2.png" width="18px" height="18px">
+                <span class="info-span2">차선 이탈 경보</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt3.png" width="18px" height="18px">
+                <span class="info-span2">후측방 경보</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt4.png" width="18px" height="18px">
+                <span class="info-span2">전자식 주차브레이크 (BPB)</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt5.png" width="18px" height="18px">
+                <span class="info-span2">통풍 시트</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt6.png" width="18px" height="18px">
+                <span class="info-span2">파노라마 선루프</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt7.png" width="18px" height="18px">
+                <span class="info-span2">스마트 키</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt8.png" width="18px" height="18px">
+                <span class="info-span2">열선 스티어링휠</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt9.png" width="18px" height="18px">
+                <span class="info-span2">후방 카메라</span>
+            </div>
+            <div class="job-infoDiv">
+                <img src="images/opt10.png" width="18px" height="18px">
+                <span class="info-span2">네비게이션</span>
+            </div>
+            
+                <button class="addBtn">옵션 12개 더 보기</button>
+            </div>
+        </section>
+
+        <section class="job-info">
+            <h2>추가 정보</h2>
+            <div class="add-info">
+                블랙박스 포함
+            </div>
+        </section>
+
+        <section class="job-detail">
+            <h2>소개</h2>
+            <p>
+                수리해서타실분 급매로팝니다<br>
+                어느정도네고가능하니 언제든지연락주세요<br>
+                궁금하신점연락주세요
+            </p>
+        </section>
+
+        <section class="job-location">
+            <h2>위치</h2>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25326.688420818078!2d126.6702151!3d37.488195049999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b7ecbf03591e1%3A0xaa9caa6128cf1d6c!2z7J247LKc6rSR7Jet7IucIOyEnOq1rCDqsIDsoozrj5k!5e0!3m2!1sko!2skr!4v1722229961127!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <address>
+                인천광역시 서구 가좌동
+            </address>
+        </section>
+        <section class="job-others">
+            <h2>중고차 직거래 게시글 더보기</h2>
+            <div class="other-wrap">
+                <div class="other-info">
+                    <article class="other-item">
+                        <div class="other-img"><img src="images/car02.jpg" alt=""></div>
+                        <div class="other-detail">
+                            <div class="other-title">
+                                포르쉐 카이엔 9Y0 3.0 (V6 Turbo) (340마력)
+                            </div>
+                            <div class="other-location">20년식 ・ 5.1만km ・ 옥수동</div>
+                            <div class="other-wage">8,300만원</div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="other-info">
+                    <article class="other-item">
+                        <div class="other-img"><img src="images/car03.jpg"
+                            alt=""></div>
+                        <div class="other-detail">
+                            <div class="other-title">
+                                현대 아반떼 AD 1.6 LPi 렌트카 스타일
+                            </div>
+                            <div class="other-location">17년식 ・ 13.2만km ・ 둔포면</div>
+                            <div class="other-wage">750만원</div>
+                        </div>
+                    </article>
+                </div>
+
+
+                <div class="other-info">
+                    <article class="other-item">
+                        <div class="other-img"><img src="images/car04.jpeg"
+                            alt=""></div>
+                        <div class="other-detail">
+                            <div class="other-title">
+                                르노코리아 QM6 HZG
+                            </div>
+                            <div class="other-location">18년식 ・ 3.9만km ・ 용두동</div>
+                            <div class="other-wage">1,540만원</div>
+                        </div>
+                    </article>
+                </div>
+
+
+                <div class="other-info">
+                    <article class="other-item">
+                        <div class="other-img"><img src="images/car05.jpg"
+                            alt=""></div>
+                        <div class="other-detail">
+                            <div class="other-title">
+                                르노코리아 마스터 2.3 디젤 캠핑카 듀오탑캠핑카 (M/T)
+                            </div>
+                            <div class="other-location">20년식 ・ 2.2만km ・ 목1동</div>
+                            <div class="other-wage">4,700만원</div>
+                        </div>
+                    </article>
+                </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <section class="footerA">
+                <nav class="footerNav">
+                    <ul class="footerNavbar">
+                        <li><a href="">중고거래</a></li>
+                        <li><a href="">동네업체</a></li>
+                        <li><a href="">당근알바</a></li>
+                        <li><a href="">부동산</a></li>
+                        <li><a href="">중고차 직거래</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">당근비즈니스</a></li>
+                        <li><a href="">채팅하기</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">자주 묻는 질문</a></li>
+                        <li><a href="">회사 소개</a></li>
+                        <li><a href="">인재 채용</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <div class="DownloadDiv1">당근 앱 다운로드</div>
+                    <div class="DownloadDiv2">
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="GooglePlay"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="footerB">
+                <div class="infoWrap">
+                    <div class="info">
+                        <div>
+                            <span class="infoStick">
+                                <b>대표</b>김용현,황도연
+                            </span>
+
+                            <span>
+                                <b>사업자번호</b>375-87-00088
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>직업정보제공사업 신고번호</b>J1200020200016
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>통신판매업 신고번호</b>2021-서울서초-2875
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>주소</b>서울특별시 구로구 디지털로 300, 10층 (당근서비스)
+                            </span>
+                        </div>
+                        <div>
+                            <span class="infoStick">
+                                <b>전화</b>1544-9796
+                            </span>
+                            <span>
+                                <b>고객문의</b>cs@daangnservice.com
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoNav">
+                        <a href="">제휴 문의</a>
+                        <a href="">광고 문의</a>
+                        <a href="">PR 문의</a>
+                        <a href="">IR 문의</a>
+                    </div>
+                </div>
+                <div class="snsWrap">
+                    <a href=""><img src="images/Facebook.png" alt=""></a>
+                    <a href=""><img src="images/Instagram.png" alt=""></a>
+                    <a href=""><img src="images/Youtube.png" alt=""></a>
+                    <a href=""><img src="images/Blog.png" alt=""></a>
+                    <div class="lang">
+                        <img src="images/Global.png" width="16px" height="16px">
+                        <span>한국</span>
+                        <img src="images/DownArrow.png" alt="" width="12px" height="6px">
+                    </div>
+                </div>
+                <div class="rules">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">운영정책</a>
+                    <a href="">위치기반서비스 이용약관</a>
+                    <a href="">이용자보호 비전과 계획</a>
+                    <a href="">청소년보호정책</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>

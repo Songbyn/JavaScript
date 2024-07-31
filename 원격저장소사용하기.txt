@@ -1,0 +1,28 @@
+
+
+집pc에서
+git clone   복사한git저장소   ( 한 번)
+
+
+--매일 --
+
+작업후
+git add  .
+git commit  -m  "메세지 작성 집에서 복습"
+git push origin main   ( 원격저장소로 파일 올리기)
+
+
+
+
+학원에서 git pull origin main   (원격저장소로 부터 내려 받기)  -- (집과 학원의 소스코드가 같아짐)
+오늘작업
+git  add . 
+git  commit -m "학원수업 "
+git push origin main 
+
+
+
+
+
+
+

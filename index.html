@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://d1unjqcospf8gs.cloudfront.net/favicon_rebrand.ico">
+    <title>당신 근처의 당근</title>
+    <!--폰트어썸 CDN : -->
+    <script src="https://kit.fontawesome.com/4ec79785b5.js" crossorigin="anonymous"></script>
+    <style>
+        /* 웹폰트 CDN */
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            user-select: none;
+            /* 클릭시 파란색 배경 없애기 */
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* 헤더 스타일 */
+        header {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        header button {
+            cursor: pointer;
+        }
+
+        .header {
+            height: 64px;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: 40px;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 36px;
+        }
+
+        .nav {
+            width: 661px;
+        }
+
+        .navBar {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+        }
+
+        .navBar li a {
+            margin-right: 30px;
+            color: #4D5159;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            width: 300px;
+        }
+
+        .search-bar input {
+            width: 288px;
+            height: 40px;
+            background-color: #F2F3F6;
+            padding: 9px 12px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chatBtn {
+            background-color: #FFFFFF;
+            width: 97.6px;
+            height: 40px;
+            border-radius: 5px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .chatBtn a {
+            font-size: 16px;
+            color: #212124;
+        }
+
+        main{
+            margin-top: 64px;
+        }
+        .section-01{
+            height: 760px;
+            background-color: #FFFAE0;
+            padding-top: 24px;
+        }
+        .section-01 h1{
+            font-size: 54px;
+            line-height: 73px;
+            color: #212529;
+            padding-top: 200px;
+            margin-bottom: 32px;
+        }
+        .service-desc{
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 400;
+            color: #7c7c7c;
+        }
+        .download-buttons{
+            margin-top: 32px;
+        }
+        .download-button{
+            width: 180px;
+            height: 56px;
+            border-radius: 10px;
+            background-color: #FF6F0F;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 14px 20px;
+            margin-right: 10px;
+        }
+        .download-button:hover{
+            background-color: rgb(240, 96, 0);
+        }
+        .section-01 i{
+            padding-right: 10px;
+            font-size: 22px;
+        }
+        .div-01{
+            margin: 0 auto;
+            width: 1024px;
+            height: 760px;
+            position: relative;
+        }
+        .main-image-01{
+            width: 650px;
+            height: 800px;
+            position: absolute;
+            right: -165px;
+            top: -45px;
+        }
+        .main-image-01 img{
+            width: 650px;
+            height: 800px;
+        }
+        .section-02{
+            height: 750px;
+            background-color: #f9f9f9;
+        }
+        .div-02{
+            margin: 0 auto;
+            width: 1024px;
+            height: 750px;
+            display: flex;
+            align-items: center;
+        }
+        .main-image-02{
+            width: 655px;
+            height: 750px;
+        }
+        .main-image-02 img{
+            width: 655px;
+            height: 750px;
+        }
+        .main-title-02{
+            width: 369px;
+        }
+        .service-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #FF6F0F;
+            margin-bottom: 10px;
+        }
+        .service-main{
+            font-size: 42px;
+            line-height: 57px;
+            color: #212529;
+            margin-bottom: 10px;
+        }
+        .home-buttons{
+            margin-top: 32px;
+        }
+        .home-button{
+            border: none;
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 700;
+            display: inline-block;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #212529;
+            background-color: #E9ECEF;
+            padding: 12px 20px;
+        }
+        .home-button:hover{
+            background-color: rgb(222, 226, 230);
+        }
+        .section-03{
+            height: 750px;
+            background-color: #FFF8F1;
+        }
+        .div-03{
+            margin: 0 auto;
+            width: 1024px;
+            height: 750px;
+            display: flex;
+            align-items: center;
+        }
+        .main-title-03{
+            width: 392px;
+        }
+        .main-image-03{
+            width: 650px;
+            height: 750px;
+        }
+        .main-image-03 img{
+            width: 650px;
+            height: 750px;
+        }
+        .home-story-list{
+
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            margin-top: 40px;
+        }
+        .list-item{
+            width: 124px;
+            height: 152px;
+            margin: 16px 10px;
+            margin-left: 0;
+        }
+        .item-icon-01{
+            width: 56px;
+            height: 56px;
+            background-image: url(https://d1unjqcospf8gs.cloudfront.net/assets/home/main/rebranded-icon-story-1-f7be38c51a389f415e9c0ae94294a80d10a744c3006a2e3a5978c11f8fc8d5d5.svg);
+            background-size: cover;
+            background-position: center;
+        }
+        .item-icon-02{
+            width: 56px;
+            height: 56px;
+            background-image: url(https://d1unjqcospf8gs.cloudfront.net/assets/home/main/rebranded-icon-story-2-5611a1d6fccb1e6b28adac130948d9701358f94fe7eb31daa224493bbd875c36.svg);
+            background-size: cover;
+            background-position: center;
+        }
+        .item-icon-03{
+            width: 56px;
+            height: 56px;
+            background-image: url(https://d1unjqcospf8gs.cloudfront.net/assets/home/main/rebranded-icon-story-3-5a01573654c91fafeb8253238bac8a718edb7fdf3e49ce8b1a7b89c4aebc6f61.svg);
+            background-size: cover;
+            background-position: center;
+        }
+        .item-name{
+            font-size: 14px;
+            font-weight: bold;
+            color: #212529;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        .item-desc{
+            font-size: 13px;
+            font-weight: 400;
+            color: #7c7c7c;
+            line-height: 17px;
+        }
+        .section-04{
+            height: 750px;
+            background-color: #f9f9f9;
+        }
+        .div-04{
+            margin: 0 auto;
+            width: 1024px;
+            height: 750px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-image-04{
+            width: 650px;
+            height: 750px;
+        }
+        .main-image-04 img{
+            width: 650px;
+            height: 750px;
+        }
+        .section-05{
+            height: 750px;
+            background-color: #F6FDEC;
+        }
+        .div-05{
+            margin: 0 auto;
+            width: 1024px;
+            height: 750px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-image-05{
+            width: 650px;
+            height: 750px;
+        }
+        .main-image-05 img{
+            width: 650px;
+            height: 750px;
+        }
+
+        /*푸터 부분*/
+        footer a {
+            text-decoration: none;
+        }
+
+        .footer {
+            width: 1024px;
+            margin: 0 auto;
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .footerA {
+            width: 1024px;
+            padding: 48px 0px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .footerNav {
+            display: flex;
+            width: 464px;
+        }
+
+        .footerNavbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footerNavbar li {
+            padding: 16.6px;
+            padding-right: 25.6px;
+        }
+
+        .footerNavbar li a {
+            font-size: 14px;
+            color: #212124;
+        }
+
+        .DownloadDiv1 {
+            font-size: 14px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        .DownloadDiv2 {
+            margin-top: 10px;
+        }
+
+        .DownloadDiv2 a {
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            border-radius: 10px;
+            width: 147px;
+            height: 44px;
+        }
+
+        .AppStore {
+            background-image: url("images/AppStore.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .GooglePlay {
+            background-image: url("images/GooglePlay.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .footerB {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            width: 1024px;
+            padding: 24px 0px 100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .infoWrap {
+            width: 430px;
+        }
+
+        .info div span {
+            font-size: 13px;
+            color: #868B94;
+        }
+
+        .info div span b {
+            font-size: 13px;
+            margin-right: 3px;
+        }
+
+        .infoStick::after {
+            content: "|";
+            margin: 0;
+            opacity: 0.4;
+        }
+
+        .infoNav {
+            margin: 16px 0px;
+        }
+
+        .infoNav a {
+            text-decoration: none;
+            color: #868B94;
+            font-size: 13px;
+            margin-right: 16px;
+            font-weight: 700;
+        }
+
+        .snsWrap {
+            margin-left: 50px;
+            width: 280px;
+            display: flex;
+        }
+
+        .snsWrap a {
+            padding-top: 4px;
+            margin-right: 16px;
+        }
+
+        .snsWrap a img {
+            width: 21px;
+            height: 21px;
+        }
+
+        .lang {
+            padding: 8px;
+            width: 92px;
+            height: 14px;
+            font-size: 14px;
+            color: #868B94;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang span {
+            padding-left: 4px;
+            padding-right: 16px;
+        }
+
+        .rules a {
+            color: #868B94;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+            <nav class="nav">
+                <ul class="navBar">
+                    <li><a href="fleamarket.html">중고거래</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
+                    <li><a href="jobs.html">알바</a></li>
+                    <li><a href="realty.html">부동산</a></li>
+                    <li><a href="car.html">중고차 직거래</a></li>
+                </ul>
+            </nav>
+            <div class="search-wrap">
+
+                <form class="search-bar">
+                    <input id="search" type="search" placeholder="물품이나 동네를 검색해보세요">
+                </form>
+
+                <span>
+                    <button class="chatBtn"><a href="login.html">채팅하기</a></button>
+                </span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="section-01">
+            <div class="div-01">
+                <div class="main-title-01">
+                    <h1>
+                        당신 근처의<br>
+                        지역 생활 커뮤니티
+                    </h1>
+                    <p class="service-desc">
+                        동네라서 가능한 모든 것<br>
+                        당근에서 가까운 이웃과 함께해요.
+                    </p>
+                    <div class="download-buttons">
+                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.towneers.www" class="download-button"><i class="fa-brands fa-google-play"></i>Google Play</a>
+                        <a target="_blank" href="https://apps.apple.com/app/id1018769995" class="download-button"><i class="fa-brands fa-apple"></i>App Store</a>
+                    </div>
+                </div>
+                <div class="main-image-01">
+                    <img src="images/index/main_01.webp">
+                </div>
+            </div>
+        </section>
+        <section class="section-02">
+            <div class="div-02">
+                <div class="main-image-02">
+                    <img src="images/index/main_02.webp">
+                </div>
+                <div class="main-title-02">
+                    <p class="service-title">중고거래</p>
+                    <h1 class="service-main">
+                        믿을만한<br>
+                        이웃 간 중고거래
+                    </h1>
+                    <p class="service-desc">
+                        동네 주민들과 가깝고 따뜻한 거래를<br>
+                        지금 경험해보세요.
+                    </p>
+                    <div class="home-buttons">
+                        <a href="" class="home-button">인기매물 보기</a>
+                        <a href="trust.html" class="home-button">믿을 수 있는 중고거래</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-03">
+            <div class="div-03">
+                <div class="main-title-03">
+                    <p class="service-title">동네생활</p>
+                    <h1 class="service-main">
+                        이웃만 아는<br>
+                        동네 정보와 이야기
+                    </h1>
+                    <p class="service-desc">
+                        우리동네의 다양한 정보와 이야기를<br>
+                        공감과 댓글로 나누어요.
+                    </p>
+                    <ul class="home-story-list">
+                        <li class="list-item">
+                            <div class="item-icon-01"></div>
+                            <div class="item-name">동네모임</div>
+                            <div class="item-desc">근처 이웃들과 동네<br>이야기를 해보세요.</div>
+                        </li>
+                        <li class="list-item">
+                            <div class="item-icon-02"></div>
+                            <div class="item-name">동네질문</div>
+                            <div class="item-desc">궁금한 게 있을 땐<br>이웃에 물어보세요.</div>
+                        </li>
+                        <li class="list-item">
+                            <div class="item-icon-03"></div>
+                            <div class="item-name">동네분실센터</div>
+                            <div class="item-desc">무언가를 잃어버렸다면<br>글을 올려보세요.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="main-image-03">
+                    <img src="images/index/main_03.webp">
+                </div>
+            </div>
+        </section>
+        <section class="section-04">
+            <div class="div-04">
+                <div class="main-image-04">
+                    <img src="images/index/main_04.webp">
+                </div>
+                <div class="main-title-04">
+                    <p class="service-title">
+                        알바
+                    </p>
+                    <h1 class="service-main">
+                        걸어서 10분!<br>
+                        동네 알바 구하기
+                    </h1>
+                    <p class="service-desc">
+                        당근하듯 쉽고, 편하게<br>
+                        당근 알바로 동네 알바를 구할 수 있어요.
+                    </p>
+                    <div class="home-buttons">
+                        <a href="jobs.html" class="home-button">내근처 알바 보기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-05">
+            <div class="div-05">
+                <div class="main-title-05">
+                    <p class="service-title">
+                        동네업체
+                    </p>
+                    <h1 class="service-main">
+                        내 근처에서 찾는<br>
+                        동네업체
+                    </h1>
+                    <p class="service-desc">
+                        이웃들의 추천 후기를 확인하고<br>
+                        동네 곳곳의 업체들을 찾을 수 있어요.
+                    </p>
+                    <div class="home-buttons">
+                        <a target="_blank" href="nearby_stores.html" class="home-button">당근 동네업체 보기</a>
+                    </div>
+                </div>
+                <div class="main-image-05">
+                    <img src="images/index/main_05.webp">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <section class="footerA">
+                <nav class="footerNav">
+                    <ul class="footerNavbar">
+                        <li><a href="">중고거래</a></li>
+                        <li><a href="">동네업체</a></li>
+                        <li><a href="">당근알바</a></li>
+                        <li><a href="">부동산</a></li>
+                        <li><a href="">중고차 직거래</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">당근비즈니스</a></li>
+                        <li><a href="">채팅하기</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">자주 묻는 질문</a></li>
+                        <li><a href="">회사 소개</a></li>
+                        <li><a href="">인재 채용</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <div class="DownloadDiv1">당근 앱 다운로드</div>
+                    <div class="DownloadDiv2">
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="GooglePlay"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="footerB">
+                <div class="infoWrap">
+                    <div class="info">
+                        <div>
+                            <span class="infoStick">
+                                <b>대표</b>김용현,황도연
+                            </span>
+
+                            <span>
+                                <b>사업자번호</b>375-87-00088
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>직업정보제공사업 신고번호</b>J1200020200016
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>통신판매업 신고번호</b>2021-서울서초-2875
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>주소</b>서울특별시 구로구 디지털로 300, 10층 (당근서비스)
+                            </span>
+                        </div>
+                        <div>
+                            <span class="infoStick">
+                                <b>전화</b>1544-9796
+                            </span>
+                            <span>
+                                <b>고객문의</b>cs@daangnservice.com
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoNav">
+                        <a href="">제휴 문의</a>
+                        <a href="">광고 문의</a>
+                        <a href="">PR 문의</a>
+                        <a href="">IR 문의</a>
+                    </div>
+                </div>
+                <div class="snsWrap">
+                    <a href=""><img src="images/Facebook.png" alt=""></a>
+                    <a href=""><img src="images/Instagram.png" alt=""></a>
+                    <a href=""><img src="images/Youtube.png" alt=""></a>
+                    <a href=""><img src="images/Blog.png" alt=""></a>
+                    <div class="lang">
+                        <img src="images/Global.png" width="16px" height="16px">
+                        <span>한국</span>
+                        <img src="images/DownArrow.png" alt="" width="12px" height="6px">
+                    </div>
+                </div>
+                <div class="rules">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">운영정책</a>
+                    <a href="">위치기반서비스 이용약관</a>
+                    <a href="">이용자보호 비전과 계획</a>
+                    <a href="">청소년보호정책</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        function search(e){
+            e.preventDefault();
+            console.log(e);
+            let searchWord = document.querySelector("#search").value;
+            window.open(`https://www.daangn.com/search/${searchWord}`);
+        }
+
+        document.querySelector(".search-bar").addEventListener("submit", search);
+    </script>
+</body>
+</html>

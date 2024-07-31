@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function loginCheck() {
+            // 폼태그는 name속성을 통해 바로 접근 가능
+            let frm = document.frm
+            // let frm = document.forms[0]
+
+            let userIDe = frm.userID
+            // let userIDe = frm.elements[0]
+            let userID = userIDe.value
+            // let userIDe = document.frm.userID
+            // let userID = userIDe.value
+
+            let userPWe = document.frm.userPW
+            let userPW = userPWe.value
+
+            // alert(userID)
+            if(userID == "") {
+                alert("아이디 입력")
+                userIDe.focus()
+            }else if(userPW == "") {
+                alert("비번입력")
+                userPWe.focus()
+            } else {
+                alert("로그인 중이다")
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form name="frm" action="/login" method="post">
+        <input type="text" name="userID">
+        <input type="text" name="userPW">
+        
+        <!-- 폼태그 안에 있는 버튼은 기본 타입이 submit -->
+        <button type="button" onclick="loginCheck()">로그인</button>
+    </form>
+</body>
+</html>

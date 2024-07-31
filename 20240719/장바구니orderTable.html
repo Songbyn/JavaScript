@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .orderTable {
+            /* border: 1px solid red; */
+            width: 450px;
+            display: flex;
+            justify-content: space-between;
+            background-color: lightgray;
+        }
+
+        .order {
+            /* border: 1px solid; */
+            line-height: 40px;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+
+        .orderSub {
+            display: flex;
+            line-height: 40px;
+            font-weight: bold;
+            padding: 5px 10px;
+            width: 50%;
+            justify-content: space-between;
+            /* border: 1px solid; */
+        }
+        
+        .orderBtn {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            color: white;
+            border: none;
+            background-color: darkblue;
+            font-size: 1.3em;
+        }
+        #orderQty {
+            color: darkblue;
+            margin: 0 5px;
+        }
+
+        #orderTotal{
+            color: darkblue;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .delBtn {
+            font-weight: bold;
+            font-size: 1em;
+            border: none;
+            background-color: inherit;
+            width: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="orderTable">
+        <div class="order">아메리카노</div>
+        <div class="orderSub">
+            <div class="sub">
+                <!-- 동적태그는 id속성은 x -->
+                <button class="orderBtn" id="plusBtn">+</button>
+                <span id="orderQty">1</span>
+                <button class="orderBtn" id="minusBtn">-</button>
+            </div>
+            <div id="orderTotal">3000원</div>
+        </div>
+        <button class="delBtn">x</button>
+    </div>
+
+</body>
+
+</html>

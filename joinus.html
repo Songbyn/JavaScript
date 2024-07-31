@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="icon" type="image/x-icon" href="https://d1unjqcospf8gs.cloudfront.net/favicon_rebrand.ico">
+
+  <style>
+    * {
+      font-family: -apple-system;
+      /* 드래그시 파란색 배경 없애기 */
+      user-select: none;
+      /* 클릭시 파란색 배경 없애기 */
+      -webkit-tap-highlight-color: transparent;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    /* 헤더 스타일 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid rgba(114, 114, 114, 0.1);
+      background-color: white;
+    }
+
+    .header {
+      height: 64px;
+      width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      text-decoration: none;
+      margin-right: 40px;
+    }
+
+    .logo img {
+      width: 65px;
+      height: 36px;
+    }
+
+
+    /*회원가입 스타일*/
+    section {
+      background-color: #F2F3F6;
+
+
+    }
+
+    .frm1 {
+      width: 1080px;
+      padding: 100px 0;
+      box-sizing: border-box;
+      background-color: white;
+      margin: 0 auto;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    table {
+      border: 1px solid rgb(227, 216, 216);
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    caption {
+      text-align: center;
+      font-weight: bold;
+      color: #FF6F0F;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    td {
+      border: 2px solid rgb(227, 216, 216);
+      font-size: 14px;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    tr {
+      height: 40px;
+    }
+
+    table tr:nth-child(3) {
+      height: 70px;
+    }
+
+    table tr:nth-child(7) {
+      height: 70px;
+      text-align: center;
+    }
+
+    table input {
+      width: 150px;
+      height: 30px;
+    }
+
+    table select {
+      width: 150px;
+      height: 30px;
+    }
+
+    table button {
+      width: 150px;
+      height: 40px;
+      border: 0px;
+    }
+
+    span {
+      color: red;
+      width: 450px;
+    }
+
+    button {
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      background-color: #fa924c;
+    }
+
+
+    /* 푸터 스타일 */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid rgba(114, 114, 114, 0.1);
+      background-color: white;
+    }
+
+    .footer_main {
+      width: 1200px;
+      height: 66px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      color: #868B94;
+      font-size: 13px;
+      margin-left: 12px;
+      font-weight: 700;
+    }
+
+    .footer-nav a:nth-child(2) {
+      color: #393A40;
+    }
+
+    .footer-Inc {
+      color: #868B94;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* 유의사항 */
+    .pw1 {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .pw2 {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 10;
+    }
+
+    .pw1:hover .pw2 {
+      display: block;
+    }
+  </style>
+
+
+
+  <script>
+    function check() {
+      event.preventDefault();
+      let frm = document.frm;
+      let username = frm.username;
+      let userid = frm.userid;
+      let userpw_1 = frm.userpw_1;
+      let userpw_2 = frm.userpw_2;
+      let useremail = frm.useremail;
+      let useremail2 = frm.useremail2;
+      let phonenumber = frm.phonenumber;
+      if (username.value == "") {
+        alert("이름을 입력하세요");
+        username.focus();
+      } else if (userid.value == "") {
+        alert("아이디를 입력하세요");
+        userid.focus();
+      } else if (userpw_1.value == "") {
+        alert("비밀번호를 입력하세요");
+        userpw_1.focus();
+      } else if (userpw_2.value == "") {
+        alert("비밀번호확인을 설정하세요");
+        userpw_2.focus();
+      } else if (useremail.value == "") {
+        alert("아이디를 입력하세요");
+        useremail.focus();
+      } else if (useremail2.value == "") {
+        alert("아이디를 입력하세요");
+        useremail2.focus();
+      } else if (phonenumber.value == "") {
+        alert("연락처를 입력하세요");
+        phonenumber.focus();
+      }
+      else {
+        alert("회원가입 성공")
+      }
+    }
+
+
+
+    function setDomain() {
+      let frm = document.frm;
+      let op = frm.op;
+      let useremail2 = frm.useremail2;
+      let opvalue = op.options[op.selectedIndex].value;
+      useremail2.value = opvalue;
+    }
+
+
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <div class="header">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+    </div>
+  </header>
+
+  <section>
+    <form name="frm" method="post" class="frm1">
+      <table>
+        <caption>
+          회원가입
+        </caption>
+        <tr>
+          <td>이름</td>
+          <td>
+            <input type="text" name="username">
+          </td>
+        </tr>
+        <tr>
+          <td>아이디</td>
+          <td>
+            <input type="text" name="userid">
+            <button type="button">중복확인</button>
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td>
+            <input type="password" name="userpw_1"><br>
+            <span class="pw1">비밀번호 유의사항
+              <span class="pw2">최소 8자리 이상(알파벳 대소문자, 특수문자, 숫자 등 두 종류 이상의 문자를 이용)</span>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호확인</td>
+          <td>
+            <input type="password" name="userpw_2">
+          </td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td>
+            <input type="text" name="useremail">@ <input type="text" name="useremail2">
+            <select onchange="setDomain()" name="op">
+              <option value="">선택하세요</option>
+              <option value="gmail.com">gmail.com</option>
+              <option value="naver.com">naver.com</option>
+            </select>
+            <button type="button">중복확인</button>
+          </td>
+        </tr>
+        <tr>
+          <td>연락처</td>
+          <td>
+            <input type="text" name="phonenumber" placeholder="- 없이 입력해주세요">
+
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button onclick="check()" type="submit">가입</button>
+            <button type="button">취소</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+  </section>
+
+  <footer>
+    <div class="footer_main">
+      <div class="footer-nav">
+        <a href="https://www.daangn.com/policy/terms" target="_blank">이용약관</a>
+        <a href="https://privacy.daangn.com/" target="_blank">개인정보처리방침</a>
+        <a href="https://www.daangn.com/policy/location" target="_blank">위치기반서비스 이용약관</a>
+      </div>
+      <div class="footer-Inc">
+        @ Daangn Market Inc.
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

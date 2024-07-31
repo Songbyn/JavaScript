@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스팸 일괄</title>
+    <link rel="icon" type="image/x-icon" href="https://d1unjqcospf8gs.cloudfront.net/favicon_rebrand.ico">
+    <style>
+        * {
+            font-family: -apple-system;
+            /* 클릭시 파란색 배경 없애기 */
+            -webkit-tap-highlight-color: transparent;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* 헤더스타일 */
+        header {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .header {
+            height: 64px;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: 40px;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 36px;
+        }
+
+        .nav {
+            width: 661px;
+        }
+
+        .navBar {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+        }
+
+        .navBar li a {
+            margin-right: 30px;
+            color: #4D5159;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            margin-right: 12px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            width: 288px;
+            height: 40px;
+            background-color: #F2F3F6;
+            padding: 9px 12px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chatBtn {
+            background-color: #FFFFFF;
+            width: 97.6px;
+            height: 40px;
+            border-radius: 5px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .chatBtn a {
+            font-size: 16px;
+            color: #212124;
+        }
+
+        /* 메인 부분 */
+        .content{
+            color: #212529;
+            margin-top: 94px;
+        }
+        .product-image{
+            width: 677px;
+            height: 500px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .product-image img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile{
+            width: 677px;
+            margin: 0 auto;
+        }
+
+        /*이미지, 유저정보, 유저매너점수*/
+        .main-imgWrap img {
+            width: 100%;
+            height: 468px;
+            border-radius: 10px;
+        }
+
+        .main-user {
+            padding: 24px 0px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #e9ecef;;
+        }
+
+        .user-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .main-userInfo {
+            display: flex;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #212124;
+        }
+
+        .user-location {
+            font-size: 14px;
+            color: #212124;
+            margin-top: 3px;
+        }
+
+        .manner-info {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: center;
+        }
+
+        .manner-info .degree {
+            color: #009CEB;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .meter {
+            margin-top: -15px;
+        }
+
+        .meter meter {
+            height: 8px;
+        }
+
+        .manner-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 3px;
+            background-image: url("images/mannerIcon.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .manner-wrap .manner-font {
+            color: #868B94;
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .description{
+            width: 677px;
+            padding: 32px 0;
+            margin: 0 auto;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .title{
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: -0.6px;
+        }
+        .category{
+            font-size: 13px;
+            line-height: 1.46;
+            letter-spacing: -0.6px;
+            color: #868e96;
+            margin-top: 4px;
+        }
+        .price{
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.76;
+            letter-spacing: -0.6px;
+            margin-top: 4px;
+        }
+        .desc p{
+            font-size: 17px;
+            line-height: 1.6;
+            letter-spacing: -0.6px;
+            margin: 16px 0;
+            word-break: break-all;
+        }
+        .counts{
+            font-size: 13px;
+            line-height: 1.46;
+            letter-spacing: -0.6px;
+            color: #868e96;
+        }
+
+        .hot-products{
+            width: 677px;
+            margin: 0 auto;
+            padding-top: 32px;
+            position: relative;
+        }
+        
+        .hot-products h3{
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.47;
+            letter-spacing: -0.6px;
+            margin-bottom: 30px;
+        }
+
+        .more-link{
+            position: absolute;
+            top: 32px;
+            right: 0;
+        }
+
+        .more-link a{
+            font-size: 15px;
+            line-height: 1.4;
+            letter-spacing: -0.6px;
+            color: #ff8a3d;
+        }
+
+        .cards-wrap{
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .card{
+            width: calc(33% - 16px);
+            margin-right: 16px;
+            margin-bottom: 56px;
+        }
+        .card:nth-child(3n){
+            margin-right: 0;
+        }
+        .card-link{
+            text-decoration: none;
+            color: #212529;
+        }
+        .card-photo{
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+            border-radius: 12px;
+        }
+        .card-photo img{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-sizing: border-box;
+            border-radius: 12px;
+            border: 1px solid transparent;
+        }
+        .card-desc{
+            margin-top: 12px;
+        }
+        .card-title{
+            font-size: 16px;
+            letter-spacing: -0.2px;
+            color: #212529;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-bottom: 4px;
+            line-height: 1.5;
+            font-weight: normal;
+        }
+        .card-price{
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+        .card-region{
+            font-size: 13px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+        .card-counts{
+            font-size: 13px;
+            color: #868e96;
+        }
+
+        /*푸터 부분*/
+        a {
+            text-decoration: none;
+        }
+
+        .footer {
+            width: 768px;
+            margin: 0 auto;
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .footerA {
+            width: 768px;
+            padding: 48px 0px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .footerNav {
+            display: flex;
+            width: 464px;
+        }
+
+        .footerNavbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footerNavbar li {
+            padding: 16.6px;
+            padding-right: 25.6px;
+        }
+
+        .footerNavbar li a {
+            font-size: 14px;
+            color: #212124;
+        }
+
+        .DownloadDiv1 {
+            font-size: 14px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        .DownloadDiv2 {
+            margin-top: 10px;
+        }
+
+        .DownloadDiv2 a {
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            border-radius: 10px;
+            width: 147px;
+            height: 44px;
+        }
+
+        .AppStore {
+            background-image: url("images/AppStore.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .GooglePlay {
+            background-image: url("images/GooglePlay.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .footerB {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            width: 768px;
+            padding: 24px 0px 100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .infoWrap {
+            width: 430px;
+        }
+
+        .info div span {
+            font-size: 13px;
+            color: #868B94;
+        }
+
+        .info div span b {
+            font-size: 13px;
+            margin-right: 3px;
+        }
+
+        .infoStick::after {
+            content: "|";
+            margin: 0;
+            opacity: 0.4;
+        }
+
+        .infoNav {
+            margin: 16px 0px;
+        }
+
+        .infoNav a {
+            text-decoration: none;
+            color: #868B94;
+            font-size: 13px;
+            margin-right: 16px;
+            font-weight: 700;
+        }
+
+        .snsWrap {
+            margin-left: 50px;
+            width: 280px;
+            display: flex;
+        }
+
+        .snsWrap a {
+            padding-top: 4px;
+            margin-right: 16px;
+        }
+
+        .snsWrap a img {
+            width: 21px;
+            height: 21px;
+        }
+
+        .lang {
+            padding: 8px;
+            width: 92px;
+            height: 14px;
+            font-size: 14px;
+            color: #868B94;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang span {
+            padding-left: 4px;
+            padding-right: 16px;
+        }
+
+        .rules a {
+            color: #868B94;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+            <nav class="nav">
+                <ul class="navBar">
+                    <li><a href="fleamarket.html" style="color: #FF6F06;">중고거래</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
+                    <li><a href="jobs.html">알바</a></li>
+                    <li><a href="realty.html">부동산</a></li>
+                    <li><a href="car.html">중고차 직거래</a></li>
+                </ul>
+            </nav>
+            <div class="search-wrap">
+
+                <form action="" class="search-bar">
+                    <input type="search" placeholder="물품이나 동네를 검색해보세요">
+                </form>
+
+                <span>
+                    <button class="chatBtn"><a href="login.html">채팅하기</a></button>
+                </span>
+            </div>
+        </div>
+    </header>
+    <section class="content">
+        <section class="product-image">
+            <img src="images/article1.webp" alt="">
+        </section>
+        <section class="profile">
+            <a href="user01.html">
+                <section class="main-user">
+                    <div class="main-userInfo">
+                        <img src="https://pbs.twimg.com/media/C8tku1zVYAAGbQ_.jpg" class="user-img">
+                        <div>
+                            <div class="user-name">직거래갈끄니까</div>
+                            <div class="user-location">경기도 의정부시 의정부3동</div>
+                        </div>
+                    </div>
+    
+                    <div class="manner-wrap">
+                        <div class="manner-info">
+                            <div>
+                                <div class="degree">38.1°C</div>
+                                <div class="meter"><meter value="38.1" max="100" low="25" high="35"></meter></div>
+                            </div>
+                            <div class="manner-icon">
+                            </div>
+                        </div>
+                        <div class="manner-font">매너온도</div>
+                    </div>
+                </section>
+            </a>
+        </section>
+        <section class="description">
+            <h1 class="title">스팸 일괄</h1>
+            <p class="category">
+                가공식품 ∙
+                <time>7일 전</time>
+            </p>
+            <p class="price">15,000원</p>
+            <div class="desc">
+                <p>
+                    스팸 팝니다<br>
+                    유통기한 사진참조
+                </p>
+            </div>
+            <p class="counts">관심 11 ∙ 채팅 38 ∙ 조회 562</p>
+        </section>
+    </section>
+    <section class="hot-products">
+        <h3>당근 인기중고</h3>
+        <div class="more-link">
+            <a href="">더 구경하기</a>
+        </div>
+        <section class="cards-wrap">
+            <div class="card">
+                <a href="" class="card-link">
+                    <div class="card-photo">
+                        <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202407/8f1bd8a0aa7d659c2588f8589842a34da8460b4867a757885966d67984e12d60_0.webp?f=webp&q=82&s=300x300&t=crop" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2 class="card-title">금목걸이</h2>
+                        <div class="card-price">500,000원</div>
+                        <div class="card-region">제주 제주시 외도동</div>
+                        <div class="card-counts">
+                            <span>관심 11</span>
+                            ∙
+                            <span>채팅 30</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="" class="card-link">
+                    <div class="card-photo">
+                        <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202407/efcf5fc4dc556d71299a9386fc9fb13d2db2786b3226149f2d7cac0374c54b8c.jpg?f=webp&q=82&s=300x300&t=crop" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2 class="card-title">엔진11 급처 합니다</h2>
+                        <div class="card-price">100,000원</div>
+                        <div class="card-region">경기도 고양시 덕양구 신원동</div>
+                        <div class="card-counts">
+                            <span>관심 13</span>
+                            ∙
+                            <span>채팅 31</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="" class="card-link">
+                    <div class="card-photo">
+                        <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202407/ab7053fffe0dcfdf0a1468206b753a75d38d17aedc48de670210a48adb1b8d11_0.webp?f=webp&q=82&s=300x300&t=crop" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2 class="card-title">제습기</h2>
+                        <div class="card-price">50,000원</div>
+                        <div class="card-region">서울 강남구 역삼동</div>
+                        <div class="card-counts">
+                            <span>관심 3</span>
+                            ∙
+                            <span>채팅 15</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="" class="card-link">
+                    <div class="card-photo">
+                        <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202407/fad186d9348a602a03a102c3762e209386f0d872ec439ca98b5974c7ff054727.webp?f=webp&q=82&s=300x300&t=crop" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2 class="card-title">여자친구가 헤어지기전에준건데...저렴하게드립니다..!!</h2>
+                        <div class="card-price">200,000원</div>
+                        <div class="card-region">서울 양천구 목1동</div>
+                        <div class="card-counts">
+                            <span>관심 39</span>
+                            ∙
+                            <span>채팅 9</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="" class="card-link">
+                    <div class="card-photo">
+                        <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202407/3abfbff009ea5c0d9d7999cc423ed08ffd6837888ac79f525b12da79c376fdbf.jpg?f=webp&q=82&s=300x300&t=crop" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2 class="card-title">버즈2팝니다</h2>
+                        <div class="card-price">50,000원</div>
+                        <div class="card-region">인천 미추홀구 주안4동</div>
+                        <div class="card-counts">
+                            <span>관심 6</span>
+                            ∙
+                            <span>채팅 23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="" class="card-link">
+                    <div class="card-photo">
+                        <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202407/f53501c77ce36911f01c0add936eb65f9f1dc37a51cf17dcaf7d3602d25c82e8_0.webp?f=webp&q=82&s=300x300&t=crop" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2 class="card-title">제습기</h2>
+                        <div class="card-price">20,000원</div>
+                        <div class="card-region">강원도 춘천시 동면</div>
+                        <div class="card-counts">
+                            <span>관심 15</span>
+                            ∙
+                            <span>채팅 28</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </section>
+    <footer>
+        <div class="footer">
+            <section class="footerA">
+                <nav class="footerNav">
+                    <ul class="footerNavbar">
+                        <li><a href="">중고거래</a></li>
+                        <li><a href="">동네업체</a></li>
+                        <li><a href="">당근알바</a></li>
+                        <li><a href="">부동산</a></li>
+                        <li><a href="">중고차 직거래</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">당근비즈니스</a></li>
+                        <li><a href="">채팅하기</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">자주 묻는 질문</a></li>
+                        <li><a href="">회사 소개</a></li>
+                        <li><a href="">인재 채용</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <div class="DownloadDiv1">당근 앱 다운로드</div>
+                    <div class="DownloadDiv2">
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="GooglePlay"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="footerB">
+                <div class="infoWrap">
+                    <div class="info">
+                        <div>
+                            <span class="infoStick">
+                                <b>대표</b>김용현,황도연
+                            </span>
+
+                            <span>
+                                <b>사업자번호</b>375-87-00088
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>직업정보제공사업 신고번호</b>J1200020200016
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>통신판매업 신고번호</b>2021-서울서초-2875
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>주소</b>서울특별시 구로구 디지털로 300, 10층 (당근서비스)
+                            </span>
+                        </div>
+                        <div>
+                            <span class="infoStick">
+                                <b>전화</b>1544-9796
+                            </span>
+                            <span>
+                                <b>고객문의</b>cs@daangnservice.com
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoNav">
+                        <a href="">제휴 문의</a>
+                        <a href="">광고 문의</a>
+                        <a href="">PR 문의</a>
+                        <a href="">IR 문의</a>
+                    </div>
+                </div>
+                <div class="snsWrap">
+                    <a href=""><img src="images/Facebook.png" alt=""></a>
+                    <a href=""><img src="images/Instagram.png" alt=""></a>
+                    <a href=""><img src="images/Youtube.png" alt=""></a>
+                    <a href=""><img src="images/Blog.png" alt=""></a>
+                    <div class="lang">
+                        <img src="images/Global.png" width="16px" height="16px">
+                        <span>한국</span>
+                        <img src="images/DownArrow.png" alt="" width="12px" height="6px">
+                    </div>
+                </div>
+                <div class="rules">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">운영정책</a>
+                    <a href="">위치기반서비스 이용약관</a>
+                    <a href="">이용자보호 비전과 계획</a>
+                    <a href="">청소년보호정책</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>

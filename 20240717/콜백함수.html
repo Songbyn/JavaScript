@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 매개변수로 받은 함수 => 콜백 함수
+        function hello (func) { // 함수를 매개변수로 받을수 있다.
+            alert("1초 후에 실행")
+            func()
+        }
+
+        //  hello(function(){  })
+        hello(function(){
+            alert("코드 실행!")
+        }) // 함수를 전달 (콜백함수)
+        // 1.익명
+
+        // 특정 시간후에 코드를 실행시켜주는 함수
+        // 함수, 시간 (밀리세컨드)
+        setTimeout(function(){
+            alert("hi")
+        },2000)
+        // 2.함수이름으로 만들고
+        function a(){
+            alert("hi2")
+        }
+        // (함수, 시간)
+        setTimeout(a,3000)
+        // setTimeout(a(),3000) => 주의사항, 함수 이름만 작성해야함
+        // a() => 함수가 호출되고 실행된 다음 반환값이 매개변수로 넘어감
+    </script>
+</body>
+</html>

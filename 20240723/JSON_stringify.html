@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>JSON 라이브러리 JSON.stringify() 매서드 : 객체나 배열을 하나의 문자열로 만들어 준다</h3>
+
+    <script>
+        let arr = ['apple', 'banana', 'melon']
+        console.log(arr)
+
+        // 로컬저장소에 저장할 때 문자열화 시켜서 저장한다
+
+        let arrString = JSON.stringify(arr)
+        console.log(arrString)
+
+        let str = "['apple',..,..]"
+        // stringify 적용 시
+        // \" 쌍따옴표를 문자로 인식
+    </script>
+</body>
+
+</html>

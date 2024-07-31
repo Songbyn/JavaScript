@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="https://blog.kakaocdn.net/dn/S0wSJ/btqDogzoUNX/kZBkpKPGjdGKJSvKKs35D0/img.png" type="image/png">
+    <style>
+        header {
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .contents {
+            height: 64px;
+            padding: 12px 20px;
+            margin: 0 160px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+        .content1 a img {
+            width: 65px;
+            height: 35px;
+            padding-right: 40px;
+        }
+        .content2 {
+            display: flex;
+            align-items: center;
+            width: 660px;
+            padding-right: 40px;
+        }
+
+        .content2 ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .content2 li a{ 
+            text-decoration: none;
+            color: #4D5159;
+            font-size: 18px;
+            margin-right: 30px;
+            font-weight: 700;
+        }
+        .content3 {
+            display: flex;
+            align-items: center;
+        }
+        .content3 input{
+            height: 40px;
+            width: 288px;
+            background-color: #F2F3F6;
+            margin-right: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .content3 button{
+            font-size: 16px;
+            background-color: white;
+            width: 97.6px;
+            height: 40px;
+            border: 1px solid darkgray;
+            border-radius: 5px;
+            font-weight: 700;
+
+
+        }
+        .cover {
+            height: 315px;
+            background-color: #FFF1AA;
+            display: flex;
+            margin-top: 64px;
+        }
+
+        .cover2 {
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .cover-img img {
+            width: 416px;
+            height: 315px;
+            margin-left: 50px;
+        }
+
+        .cover-content {
+            margin-top: 30px;
+        }
+
+        .cover-content h1 {
+            font-size: 34px;
+        }
+
+        .cover-content p {
+            font-size: 18px;
+        }
+        .article{
+            padding-top: 40px;
+            margin: 0 24px;
+        }
+        .article h1 {
+            text-align: center;
+            font-size: 32px;
+            height: 43px;
+            color: #212529;
+        }
+
+        .card-wrap {
+           padding: 64px 0;
+           width: 757px;
+           height: 1800px;
+           margin: 40px 451px 0px 451px;
+           font-size: 10px;
+           color: #212529;
+           display: flex;
+           justify-content: space-between;
+           flex-wrap: wrap;
+        }
+        .card-top{
+            width: 223px;
+            height: 400px;
+            border: 1px solid black;
+        }
+        .card-top a{
+            text-decoration: none;
+        }
+        .card-img img {
+            border-radius: 12px;
+            width: 223px;
+            height: 223px;
+        }
+        .card-desc{
+            text-decoration: none;
+        }
+        .card-desc h2{
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: #212529;
+        }
+        .card-price{
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .card-region{
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .card-counts{
+            font-size: 13px;
+            color: #868e96;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="contents">
+            <div class="content1">
+                <a href="index.html"><img
+                        src="https://i.namu.wiki/i/4kTJGvpYAXvbT44b-ePbMSkdNuwLCFEUCwWPrIcEYX1LFnemJhrYl9LZd8wWriY-ADdCS3QhPlHNsrlnnWSSfQ.svg"
+                        alt=""></a>
+            </div>
+            <nav class="content2">
+                <ul class="content2_2">
+                    <li>
+                        <a href="fleamarket.html">중고거래</a>
+                    </li>
+                    <li>
+                        <a href="nearby-stores.html">동네업체</a>
+                    </li>
+                    <li>
+                        <a href="jobs.html">알바</a>
+                    </li>
+                    <li>
+                        <a href="realty.html">부동산</a>
+                    </li>
+                    <li>
+                        <a href="car.html">중고차 직거래</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content3">
+                
+                    <input type="search" placeholder="물품이나 동네를 검색해보세요">
+        
+                    <button id="loginBtn">로그인</button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>로그인</h2>
+            <form>
+                <input type="text" placeholder="아이디">
+                <input type="password" placeholder="비밀번호">
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+    </div>
+
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal input[type="text"],
+        .modal input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .modal button {
+            background-color: #F76707;
+            width: 90%;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #e05c04;
+        }
+    </style>
+
+    <script>
+        // 모달창을 열고 닫는 스크립트
+        var modal = document.getElementById("loginModal");
+        var btn = document.getElementById("loginBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        // 로그인 버튼 클릭 시 모달 열기
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // 모달의 닫기 버튼 클릭 시 모달 닫기
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // 모달 외부 클릭 시 모달 닫기
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <section class="cover">
+        <div class="cover2">
+            <div class="cover-content">
+                <h1>믿을만한
+                    <br>
+                    이웃 간 중고거래
+                </h1>
+                <p>동네 주민들과 가깝고 따뜻한 거래를 <br>
+                    지금 경험해보세요.
+                </p>
+            </div>
+            <div class="cover-img">
+                <img src="./images/중고거래커버.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="article">
+            <h1>중고거래 인기매물</h1>
+        <div class="card-wrap">
+            <article class="card-top">
+                <a href="" class="card-link">
+                    <div class="card-img">
+                        <img src="./images/article1.webp" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2>스팸일괄</p>
+                        <div class="card-price">15,000원</div>
+                        <div class="card-region">경기도 의정부시 의정부3동</div>
+                        <div class="card-counts">관심 12 · 채팅 38</div>
+                    </div>
+                </a>
+            </article>
+            <article class="card-top">
+                <a href="" class="card-link">
+                    <div class="card-img">
+                        <img src="./images/article1.webp" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2>스팸일괄</p>
+                        <div class="card-price">15,000원</div>
+                        <div class="card-region">경기도 의정부시 의정부3동</div>
+                        <div class="card-counts">관심 12 · 채팅 38</div>
+                    </div>
+                </a>
+            </article>
+            <article class="card-top">
+                <a href="" class="card-link">
+                    <div class="card-img">
+                        <img src="./images/article1.webp" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2>스팸일괄</p>
+                        <div class="card-price">15,000원</div>
+                        <div class="card-region">경기도 의정부시 의정부3동</div>
+                        <div class="card-counts">관심 12 · 채팅 38</div>
+                    </div>
+                </a>
+            </article>
+            <article class="card-top">
+                <a href="" class="card-link">
+                    <div class="card-img">
+                        <img src="./images/article1.webp" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h2>스팸일괄</p>
+                        <div class="card-price">15,000원</div>
+                        <div class="card-region">경기도 의정부시 의정부3동</div>
+                        <div class="card-counts">관심 12 · 채팅 38</div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+
+    <style>
+        .keywords{
+            background-color: #F8F9FA;
+            color: #212529;
+            height: 104px;
+            display: flex;
+        }
+        .keywords-title{
+            margin: auto 40px auto 350px;
+            
+        }
+        .keywords-title a{
+            color: #212529;
+            font-size: 16px;
+
+        }
+        .keywords-item{
+            list-style: none;
+            display: flex;
+        }
+        .keywords-item li{
+            margin: 16px;
+            width: 50px;
+        }
+        .keywords-item li a{
+            text-decoration: none;
+            color: #212529;
+        }
+
+    </style>
+
+
+    <section class="keywords">
+        <h3 class="keywords-title">
+            <a href="">중고거래 인기검색어</a>
+        </h3>
+        <ul class="keywords-item">
+            <li>
+                <a href="">에어컨</a>
+            </li>
+            <li>
+                <a href="">나눔</a>
+            </li>
+            <li>
+                <a href="">자전거</a>
+            </li>
+            <li>
+                <a href="">제습기</a>
+            </li>
+            <li>
+                <a href="">냉장고</a>
+            </li>
+            <li>
+                <a href="">한화</a>
+            </li>
+            <li>
+                <a href="">원피스</a>
+            </li>
+            <li>
+                <a href="">기아</a>
+            </li>
+            <li>
+                <a href="">컴퓨터</a>
+            </li>
+            <li>
+                <a href="">의자</a>
+            </li>
+        </ul>
+
+    </section>
+
+
+
+
+</body>
+
+</html>

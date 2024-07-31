@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" jobs="width=device-width, initial-scale=1.0">
+    <title>딜러 없이 믿고 사는 당근 중고차</title>
+    <link rel="icon" type="image/x-icon" href="https://d1unjqcospf8gs.cloudfront.net/favicon_rebrand.ico">
+    <style>
+        * {
+            font-family: -apple-system;
+            /* 드래그시 파란색 배경 없애기 */
+            user-select: none;
+            /* 클릭시 파란색 배경 없애기 */
+            -webkit-tap-highlight-color: transparent;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        article {
+            cursor: pointer;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .header {
+            height: 64px;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: 40px;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 36px;
+        }
+
+        .nav {
+            width: 661px;
+        }
+
+        .navBar {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+        }
+
+        .navBar li a {
+            margin-right: 30px;
+            color: #4D5159;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            width: 300px;
+        }
+
+        .search-bar input {
+            width: 288px;
+            height: 40px;
+            background-color: #F2F3F6;
+            padding: 9px 12px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chatBtn {
+            background-color: #FFFFFF;
+            width: 97.6px;
+            height: 40px;
+            border-radius: 5px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .chatBtn a {
+            font-size: 16px;
+            color: #212124;
+        }
+
+        /* 헤드부분 */
+        .headWrap {
+            height: 315px;
+            background-color: #d2edfa;
+            margin-top: 64px;
+        }
+        .headContents {
+            width: 768px;
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+        }
+        .headContent {
+            width: 768px;
+            padding: 50px 0px;
+            margin: 0 auto;
+        }
+
+        .headContent p {
+            margin: 16px 0;
+            font-size: 18px;
+            color: #212124;
+        }
+
+        .headContent div {
+            margin-top: 24px;
+        }
+
+        .headContent div button {
+            color: white;
+            background-color: #FF6F06;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 5px 10px;
+            line-height: 24px;
+        }
+
+        .headLogo {
+            position: absolute;
+            bottom: 0;
+            left: 380px;
+            background-image: url("https://www.daangn.com/_next/static/media/car_hero_3x.f057110b.png");
+            background-size: cover;
+            background-position: center;
+            height: 282px;
+            width: 400px;
+        }
+
+        /* 섹션 스타일 */
+        .bodyWrap {
+            width: 768px;
+            margin: 0 auto;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+
+        .bodyWrap h2 {
+            color: #212124;
+            margin: 60px 0 40px;
+            font-size: 26px;
+        }
+
+        .carsWrap {
+            display: flex;
+            width: 368.64px;
+            margin: 20px 0;
+        }
+
+        .carsWrap:nth-child(1),
+        .carsWrap:nth-child(2),
+        .carsWrap:nth-child(11),
+        .carsWrap:nth-child(12) {
+            margin-top: 0;
+        }
+
+        .carsWrap .carsItem {
+            margin-left: 16px;
+        }
+
+        .carsImg img {
+            border-radius: 5px;
+            width: 108px;
+            height: 108px;
+        }
+
+        .carsItem .carsName {
+            font-size: 18px;
+            color: #212124;
+            margin-bottom: 4px;
+        }
+
+        .carsItem .carsInfo {
+            font-size: 14px;
+            color: #868B94;
+            margin-bottom: 4px;
+        }
+
+        .carsItem .carsPrice {
+            font-size: 16px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        .bodyContents {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .advertisement {
+            height: 112px;
+            box-sizing: border-box;
+            background-color: #009CEB1A;
+            margin: 44px 0 64px;
+            padding: 28px 24px 28px 33px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .adWrap {
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .adWrap div {
+            margin-left: 30px;
+            color: #212124;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .adBtn {
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fa6616;
+            padding: 11px 10px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /*푸터 부분*/
+        a {
+            text-decoration: none;
+        }
+
+        .footer {
+            width: 768px;
+            margin: 0 auto;
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .footerA {
+            width: 768px;
+            padding: 48px 0px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .footerNav {
+            display: flex;
+            width: 464px;
+        }
+
+        .footerNavbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footerNavbar li {
+            padding: 16.6px;
+            padding-right: 25.6px;
+        }
+
+        .footerNavbar li a {
+            font-size: 14px;
+            color: #212124;
+        }
+
+        .DownloadDiv1 {
+            font-size: 14px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        .DownloadDiv2 {
+            margin-top: 10px;
+        }
+
+        .DownloadDiv2 a {
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            border-radius: 10px;
+            width: 147px;
+            height: 44px;
+        }
+
+        .AppStore {
+            background-image: url("images/AppStore.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .GooglePlay {
+            background-image: url("images/GooglePlay.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .footerB {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            width: 768px;
+            padding: 24px 0px 100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .infoWrap {
+            width: 430px;
+        }
+
+        .info div span {
+            font-size: 13px;
+            color: #868B94;
+        }
+
+        .info div span b {
+            font-size: 13px;
+            margin-right: 3px;
+        }
+
+        .infoStick::after {
+            content: "|";
+            margin: 0;
+            opacity: 0.4;
+        }
+
+        .infoNav {
+            margin: 16px 0px;
+        }
+
+        .infoNav a {
+            text-decoration: none;
+            color: #868B94;
+            font-size: 13px;
+            margin-right: 16px;
+            font-weight: 700;
+        }
+
+        .snsWrap {
+            margin-left: 50px;
+            width: 280px;
+            display: flex;
+        }
+
+        .snsWrap a {
+            padding-top: 4px;
+            margin-right: 16px;
+        }
+
+        .snsWrap a img {
+            width: 21px;
+            height: 21px;
+        }
+
+        .lang {
+            padding: 8px;
+            width: 92px;
+            height: 14px;
+            font-size: 14px;
+            color: #868B94;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang span {
+            padding-left: 4px;
+            padding-right: 16px;
+        }
+
+        .rules a {
+            color: #868B94;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 16px;
+        }
+
+        /* 모달 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px 40px;
+            border: 1px solid #888;
+            width: 400px;
+            max-width: 500px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal input[type="text"],
+        .modal input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .modal button {
+            background-color: #F76707;
+            width: 100%;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #e05c04;
+        }
+
+        .modal-other {
+            margin-top: 36px;
+            text-align: center;
+        }
+
+        .modal-border {
+            border: .5px solid rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .modal-font {
+            font-size: 14px;
+            color: #70798F;
+            display: inline-block;
+            z-index: 5;
+            padding: 0 12px;
+            position: relative;
+            top: -12px;
+            background-color: white;
+        }
+
+        .modal-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .modal-nav a {
+            margin: 0px 10px;
+        }
+
+        .modal-check {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-check input {
+            margin: 0;
+            padding: 0;
+            margin-right: 6px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-check label {
+            font-size: 14px;
+            color: #16181D;
+        }
+
+        .modal-resist {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .modal-resist .resist01 {
+            color: #70798F;
+            font-size: 14px;
+            color: #70798F;
+            margin-right: 6px;
+        }
+
+        .modal-resist .resist02 a {
+            text-decoration: none;
+            color: #21AFBF;
+            font-size: 14px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+            <nav class="nav">
+                <ul class="navBar">
+                    <li><a href="fleamarket.html">중고거래</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
+                    <li><a href="jobs.html">알바</a></li>
+                    <li><a href="realty.html">부동산</a></li>
+                    <li><a href="car.html" style="color: #FF6F06;">중고차 직거래</a></li>
+                </ul>
+            </nav>
+            <div class="search-wrap">
+
+                <form action="" class="search-bar">
+                    <input type="search" placeholder="물품이나 동네를 검색해보세요">
+                </form>
+
+                <span>
+                    <button class="chatBtn"><a href="login.html">채팅하기</a></button>
+                </span>
+            </div>
+        </div>
+    </header>
+    <div class="headWrap">
+        <div class="headContents">
+            <div class="headContent">
+                <h1>딜러 수수료 없는<br>중고차 직거래</h1>
+                <p>딜러 없이 믿고 살 수 있는 중고차,<br>당근에서 직거래해보세요.</p>
+                <div>
+                    <button class="postBtn">내 차 판매하기</button>
+                </div>
+            </div>
+            <div class="headLogo"></div>
+        </div>
+    </div>
+    <section class="bodyWrap">
+        <h2>인기 중고차</h2>
+        <div class="bodyContents">
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="https://dnvefa72aowie.cloudfront.net/car/articles/35967dc777a7f45e9d6af0216dcbbe91b6f40e67d717a0263b50718aa3696f35_1718853249603.jpeg?q=95&s=1440x1440&t=inside"
+                        alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">현대 올 뉴 투싼 TL 5인승(디젤2.0) FWD 모던</div>
+                    <div class="carsInfo">19년식 ・ 10.1만km・가좌동</div>
+                    <div class="carsPrice">950만원</div>
+                </div>
+            </article>
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="https://dnvefa72aowie.cloudfront.net/car/articles/f85a955f75df6a7e87fc0a95feaea96a085c96f2c94385eadfd4f56361cf730c_1717486995411.jpeg?q=95&s=1440x1440&t=inside"
+                        alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">볼보 XC40 T4 AWD</div>
+                    <div class="carsInfo">19년식 ・ 3.2만km・성산동</div>
+                    <div class="carsPrice">2,850만원</div>
+                </div>
+            </article>
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="https://dnvefa72aowie.cloudfront.net/car/articles/dc2b6b730e833c7890afc0b69afba102f108e6131e64f3b01305ba8918cabd84_1707288804615.jpeg?q=95&s=1440x1440&t=inside"
+                        alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">제네시스 GV80 JX1 5인승(가솔린 2.5T) RWD 22인치</div>
+                    <div class="carsInfo">20년식 ・ 4.2만km・거제동</div>
+                    <div class="carsPrice">4950만원</div>
+                </div>
+            </article>
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car01.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">BMW 5시리즈 F10 520d (184마력)</div>
+                    <div class="carsInfo">14년식 ・ 13.9만km ・ 상인동</div>
+                    <div class="carsPrice">739만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car02.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">포르쉐 카이엔 9Y0 3.0 (V6 Turbo) (340마력)</div>
+                    <div class="carsInfo">20년식 ・ 5.1만km ・ 옥수동</div>
+                    <div class="carsPrice">8,300만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car03.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">현대 아반떼 AD 1.6 LPi 렌트카 스타일</div>
+                    <div class="carsInfo">17년식 ・ 13.2만km ・ 둔포면</div>
+                    <div class="carsPrice">750만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car04.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">르노코리아 QM6 HZG</div>
+                    <div class="carsInfo">18년식 ・ 3.9만km ・ 용두동</div>
+                    <div class="carsPrice">1,540만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car05.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">르노코리아 마스터 2.3 디젤 캠핑카 듀오탑캠핑카 (M/T)</div>
+                    <div class="carsInfo">20년식 ・ 2.2만km ・ 목1동</div>
+                    <div class="carsPrice">4,700만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car06.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">아우디 A6 C7/4G 45 TDI 콰트로 (245마력)</div>
+                    <div class="carsInfo">15년식 ・ 8만km ・ 내발산동</div>
+                    <div class="carsPrice">900만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car07.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">볼보 940 2.3</div>
+                    <div class="carsInfo">97년식 ・ 5.7만km ・ 상암동</div>
+                    <div class="carsPrice">2,000만원</div>
+                </div>
+            </article>
+        </div>
+
+
+
+        <div class="advertisement">
+            <div class="adWrap">
+                <img src="https://www.daangn.com/_next/static/media/car_icon_2x.20c4e691.png" width="70px"
+                    height="57px">
+                <div>
+                    딜러 수수료 없는 중고차 직거래<br>
+                    당근에서 바로 찾아주세요!
+                </div>
+            </div>
+            <div>
+                <button class="adBtn">앱 다운로드 하기</button>
+            </div>
+        </div>
+
+
+
+        <div class="bodyContents">
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car08.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">벤츠 CLS 클래스 W218 CLS400 후기형 (333마력)</div>
+                    <div class="carsInfo">17년식 ・ 10.7만km ・ 월계3동</div>
+                    <div class="carsPrice">1,650만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car09.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">기아 엘란 1.8 DOHC 컨버터블</div>
+                    <div class="carsInfo">96년식 ・ 14만km ・ 구성동</div>
+                    <div class="carsPrice">1,450만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car10.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">렉서스 ES XV60 ES 300h</div>
+                    <div class="carsInfo">18년식 ・ 6.5만km ・ 안락제2동</div>
+                    <div class="carsPrice">3,300만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car11.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">닛산 쥬크 F15 1.6 전기형 (190마력)</div>
+                    <div class="carsInfo">14년식 ・ 7.8만km ・ 가곡동</div>
+                    <div class="carsPrice">650만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car12.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">현대 캐스퍼 AX1 4인승(1.0T GDI) FWD 스마트</div>
+                    <div class="carsInfo">22년식 ・ 2.3만km ・ 배방읍</div>
+                    <div class="carsPrice">1,300만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car13.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">혼다 어코드 Ⅷ 2.4</div>
+                    <div class="carsInfo">09년식 ・ 9.1만km ・ 청담동</div>
+                    <div class="carsPrice">450만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car14.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">기아 캐피탈 1.5 DOHC</div>
+                    <div class="carsInfo">91년식 ・ 20.3만km ・ 초월읍</div>
+                    <div class="carsPrice">600만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car15.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">캠시스 CEVO-C 전기</div>
+                    <div class="carsInfo">20년식 ・ 1563km ・ 구월4동</div>
+                    <div class="carsPrice">300만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car16.jpeg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">기아 셀토스 SP2 5인승(가솔린 1.6T) FWD 프레스티지</div>
+                    <div class="carsInfo">20년식 ・ 7945km ・ 서초동</div>
+                    <div class="carsPrice">2,000만원</div>
+                </div>
+            </article>
+
+            <article class="carsWrap">
+                <div class="carsImg">
+                    <img src="images/car17.jpg" alt="">
+                </div>
+                <div class="carsItem">
+                    <div class="carsName">제네시스 G90 HI 3.8 GDI RWD 5인승 럭셔리</div>
+                    <div class="carsInfo">19년식 ・ 7.4만km ・ 공릉동</div>
+                    <div class="carsPrice">3,720만원</div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <section class="footerA">
+                <nav class="footerNav">
+                    <ul class="footerNavbar">
+                        <li><a href="">중고거래</a></li>
+                        <li><a href="">동네업체</a></li>
+                        <li><a href="">당근알바</a></li>
+                        <li><a href="">부동산</a></li>
+                        <li><a href="">중고차 직거래</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">당근비즈니스</a></li>
+                        <li><a href="">채팅하기</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">자주 묻는 질문</a></li>
+                        <li><a href="">회사 소개</a></li>
+                        <li><a href="">인재 채용</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <div class="DownloadDiv1">당근 앱 다운로드</div>
+                    <div class="DownloadDiv2">
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="GooglePlay"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="footerB">
+                <div class="infoWrap">
+                    <div class="info">
+                        <div>
+                            <span class="infoStick">
+                                <b>대표</b>김용현,황도연
+                            </span>
+
+                            <span>
+                                <b>사업자번호</b>375-87-00088
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>직업정보제공사업 신고번호</b>J1200020200016
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>통신판매업 신고번호</b>2021-서울서초-2875
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>주소</b>서울특별시 구로구 디지털로 300, 10층 (당근서비스)
+                            </span>
+                        </div>
+                        <div>
+                            <span class="infoStick">
+                                <b>전화</b>1544-9796
+                            </span>
+                            <span>
+                                <b>고객문의</b>cs@daangnservice.com
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoNav">
+                        <a href="">제휴 문의</a>
+                        <a href="">광고 문의</a>
+                        <a href="">PR 문의</a>
+                        <a href="">IR 문의</a>
+                    </div>
+                </div>
+                <div class="snsWrap">
+                    <a href=""><img src="images/Facebook.png" alt=""></a>
+                    <a href=""><img src="images/Instagram.png" alt=""></a>
+                    <a href=""><img src="images/Youtube.png" alt=""></a>
+                    <a href=""><img src="images/Blog.png" alt=""></a>
+                    <div class="lang">
+                        <img src="images/Global.png" width="16px" height="16px">
+                        <span>한국</span>
+                        <img src="images/DownArrow.png" alt="" width="12px" height="6px">
+                    </div>
+                </div>
+                <div class="rules">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">운영정책</a>
+                    <a href="">위치기반서비스 이용약관</a>
+                    <a href="">이용자보호 비전과 계획</a>
+                    <a href="">청소년보호정책</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>로그인</h2>
+            <form>
+                <input type="text" placeholder="아이디">
+                <input type="password" placeholder="비밀번호">
+                <button type="submit">로그인</button>
+            </form>
+            <div class="modal-other">
+                <div class="modal-border"></div>
+                <span class="modal-font">다른 방법으로 로그인</span>
+            </div>
+            <div class="modal-nav">
+                <a target="_blank"
+                    href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?response_type=code&client_id=879856290852-j8vht98rp1jd3thrgnib2dp1fg2flui2.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fapi.miricanvas.com%2Fauth%2Fgoogle%2Foauth20%2Fmiricanvas%2Fcallback&state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDAxN30.m55kTj7Pck61qkk2LIwVnXe0SVbHasqXeiekHjOLvTw&scope=profile%20email&service=lso&o2v=1&ddm=0&flowName=GeneralOAuthFlow"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-google-symbol-96-96-new.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+                <a target="_blank"
+                    href="https://www.facebook.com/login.php?skip_api_login=1&api_key=1013430245531976&kid_directed_site=0&app_id=1013430245531976&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv18.0%2Fdialog%2Foauth%3Fresponse_type%3Dcode%26client_id%3D1013430245531976%26redirect_uri%3Dhttps%253A%252F%252Fapi.miricanvas.com%252Fauth%252Ffacebook%252Foauth20%252Fmiricanvas%252Fcallback%26state%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDAzOX0.p0FnJeVc2_n6fr2f2BPK0Fzf_1VUNXIC4EnDIi7wGHo%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3De99df31e-b78f-445c-a697-7d5109eaa59e%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fapi.miricanvas.com%2Fauth%2Ffacebook%2Foauth20%2Fmiricanvas%2Fcallback%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDAzOX0.p0FnJeVc2_n6fr2f2BPK0Fzf_1VUNXIC4EnDIi7wGHo%23_%3D_&display=page&locale=ko_KR&pl_dbl=0"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-facebook-symbol-96-96.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+                <a target="_blank"
+                    href="https://account.whalespace.io/s/login?redirect=https%3A%2F%2Fapi.miricanvas.com%2Fauth%2Fwhale%2Foauth20%2Fmiricanvas%2Fcallback&client_id=NDT498fc9ClbZguxzdgC&ot=WQsWeVBpVv2_MUjs&state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDA0OH0.Me5GQXANMCvGhE_GJGRG2yfaOCDI7GIC-9mdgj4aG8g"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-whale-symbol-96-96.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+                <a target="_blank"
+                    href="https://appleid.apple.com/auth/authorize?response_type=code&client_id=com.miridih.miricanvas-web&redirect_uri=https://api.miricanvas.com/auth/apple/oauth20/miricanvas/callback&state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDA1NX0.wZ1xS7QIFSw7AMZjfX2p3Kz_TV_kcj32oNCvxOczlco&scope=name%20email&response_mode=form_post"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-apple-symbol-128-128.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+            </div>
+            <div class="modal-check">
+                <input type="checkbox" name="modal-label">
+                <label for="modal-label">로그인 상태 유지</label>
+            </div>
+            <div class="modal-resist">
+                <span class="resist01">아직 회원이 아니신가요?</span>
+                <span class="resist02"><a href="joinus.html">회원가입</a></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.carsWrap').addEventListener('click', function (event) {
+            event.stopPropagation(); // 이벤트 버블링 방지
+            window.open("car-post.html", "_blank");
+        });
+        // 모달창을 열고 닫는 스크립트
+        let modal = document.getElementById("loginModal");
+        let btn = document.querySelector(".postBtn");
+        let span = document.getElementsByClassName("modal-close")[0];
+
+        // 로그인 버튼 클릭 시 모달 열기
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // 모달의 닫기 버튼 클릭 시 모달 닫기
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // 모달 외부 클릭 시 모달 닫기
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

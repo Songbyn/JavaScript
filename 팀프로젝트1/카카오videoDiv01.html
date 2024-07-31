@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .videoWrap {
+            width: 900px;
+            height: 500px;
+            background-color: blanchedalmond;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 38px;
+            background-image: url("");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .vWrapTop {
+            width: 120px;
+            height: 90px;
+            background-color: white;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-radius: 0px 0px 0px 15px;
+            text-align: center;
+
+        }
+        .vWrapTop::before {
+            content: "";
+            display: block;
+            width: 38px;
+            height: 38px;
+            position: absolute;
+            left: -35px;
+            top: -3px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M20 22h2V0H0v2c11 0 20 9 20 20z' fill-rule='evenodd' clip-rule='evenodd' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* SVG 크기 조정 */
+        }
+        .vWrapTop::after {
+            content: "";
+            display: block;
+            width: 38px;
+            height: 38px;
+            position: absolute;
+            bottom: -35px;
+            right: -3px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M20 22h2V0H0v2c11 0 20 9 20 20z' fill-rule='evenodd' clip-rule='evenodd' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* SVG 크기 조정 */
+        }
+
+        .vWrapTop #bulb {
+            width: 80px;
+            height: 80px;
+        }
+
+        .vWrapBottom {
+            width: 200px;
+            height: 90px;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            border-radius: 0px 15px 0px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .vWrapBottom::before {
+            content: "";
+            display: block;
+            width: 38px;
+            height: 38px;
+            position: absolute;
+            top: -36px;
+            left: -2px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewvWrap.vWrapBottom='0 0 38 38'%3E%3Cpath d='M2 0H0v38h38v-2C18.1 36 2 19.9 2 0z' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* background-color: red; */
+            /* SVG 크기 조정 */
+        }
+        .vWrapBottom::after {
+            content: "";
+            display: block;
+            width: 38px;
+            height: 38px;
+            position: absolute;
+            bottom: -2px;
+            right: -36px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewvWrap.vWrapBottom='0 0 38 38'%3E%3Cpath d='M2 0H0v38h38v-2C18.1 36 2 19.9 2 0z' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* SVG 크기 조정 */
+        }
+
+        .vWrapBottom .vWrapBtn {
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="videoWrap">
+        <div class="vWrapTop">
+            <img id="bulb" src="https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/report/c925e9e0018c00001.gif" alt="">
+        </div>
+        <div class="vWrapBottom">
+            <div class="vWrapBottomContent">
+                영상보러가기
+                <button class="vWrapBtn">&rang;</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

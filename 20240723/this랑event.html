@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="thisBtn" onclick="thisB(this)">디스</button>
+    <!-- this로 주면 버튼, event로 주면 포인터 -->
+    <button class="eventBtn">이벤트</button>
+
+    <script>
+        function thisB(evt) {
+            alert(evt) // 버튼
+            // event로 주면 evt.target
+        }
+        // function thisB() {
+        //     alert(this) // window
+        // }
+
+        let eventBtn = document.querySelector(".eventBtn")
+        // eventBtn.addEventListener("click", function() {
+        //     alert(this)
+        // })
+        eventBtn.addEventListener("click", e => {
+            alert(e.target)
+        })
+    </script>
+</body>
+</html>

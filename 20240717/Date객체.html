@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>태어난지 몇일 구하기</h2>
+    <script>
+        let current = new Date()
+        let bornDay = new Date("2000-02-13")
+
+        let toNow = current.getTime() // 밀리세컨드 (1/1000 초)
+        let toFirst = bornDay.getTime()
+        console.log(toNow)
+        let passedTime = toNow - toFirst
+        let passedDay = passedTime / (1000*60*60*24) // 초,분,1시간 * 24 -> 1일 
+        alert(Math.round(passedDay))
+
+    </script>
+</body>
+</html>

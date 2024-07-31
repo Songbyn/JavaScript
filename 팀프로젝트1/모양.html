@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: relative;
+            margin-top: 100px;
+        }
+
+        .box::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: blue;
+            position: absolute;
+            top: -30px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Cpath d='M2 0H0v38h38v-2C18.1 36 2 19.9 2 0z' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: cover;
+            /* SVG 크기 조정 */
+        }
+        .box::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            bottom: 0px;
+            right: -30px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M20 22h2V0H0v2c11 0 20 9 20 20z' fill-rule='evenodd' clip-rule='evenodd' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: cover;
+            /* SVG 크기 조정 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+</body>
+
+</html>

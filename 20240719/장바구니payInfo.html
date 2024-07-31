@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .payWrap {
+            width: 300px;
+            height: 500px;
+            border: 1px solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .payWrap div {
+            border: 1px solid;
+        }
+
+        .payInfo {
+            padding-left: 5px;
+        }
+        
+        .payInfo p {
+            color: skyblue;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        #totalPrice {
+            color: darkblue;
+            font-weight: bold;
+            font-size: 1.8em;
+        }
+
+        #deleteAll {
+            width: 100%;
+            opacity: 0.7;
+            font-size: 0.95em;
+            padding: 5px 0;
+            margin-bottom: 10px;
+        }
+
+        #pay {
+            width: 100%;
+            font-size: 2em;
+            color: white;
+            background-color: darkblue;
+            line-height: 120px;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="payWrap">
+        <div class="payInfo">
+            <p>총 결제금액</p>
+            <span id="totalPrice">0원</span>
+        </div>
+        <div>
+            <button id="deleteAll">전체삭제</button> <br>
+            <button id="pay">결제</button>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

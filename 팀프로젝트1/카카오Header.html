@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 헤더 스타일 */
+        .headerWrap {
+            border: 1px solid;
+            height: 100px;
+        }
+
+        .headerContents {
+            border: 1px solid red;
+            height: inherit;
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .headerLogo {
+            border: 1px solid orange;
+            font-size: 1.7em;
+            font-weight: 1000;
+        }
+
+        .headerNav {
+            border: 1px solid yellow;
+        }
+        .navbar {
+            border: 1px solid blue;
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navItem {
+            border: 1px solid violet;
+            padding: 0 40px;
+            font-size: 1.1em;
+        }
+
+        .headerItems {
+            border: 1px solid green;
+            display: flex;
+        }
+        .headerItem {
+            border: 1px solid saddlebrown;
+            font-size: 1.1em;
+            padding: 0 15px;
+        }
+        /* ********** */
+    </style>
+</head>
+<body>
+    <header class="headerWrap">
+        <div class="headerContents">
+            <div class="headerLogo">KAKAO</div>
+            <nav class="headerNav">
+                <ul class="navbar">
+                    <li class="navItem">소개</li>
+                    <li class="navItem">이야기</li>
+                    <li class="navItem">기술과 서비스</li>
+                    <li class="navItem">약속과 책임</li>
+                    <li class="navItem">뉴스</li>
+                    <li class="navItem">투자정보</li>
+                </ul>
+            </nav>
+            <div class="headerItems">
+                <div class="headerItem">가</div>
+                <div class="headerItem">나</div>
+                <div class="headerItem">다</div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

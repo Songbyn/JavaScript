@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    </script>
+</head>
+<body>
+    <div class="item">아메리카노</div>
+    <div class="item">라떼</div>
+    <div class="item">망고</div>
+    
+    <script>
+        let items = document.querySelectorAll(".item")
+
+        for(let i = 0; i<items.length; i++) {
+            let item = items[i]
+            item.addEventListener("click", function(e) {
+                console.log(e)
+                let currentItem = e.target
+                let content = currentItem.innerHTML
+                alert(content)
+            })
+        }
+    </script>
+    
+</body>
+</html>
